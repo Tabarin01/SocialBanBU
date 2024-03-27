@@ -44,17 +44,15 @@ public class UserController {
 
 		User updatedUser = userRepository.findByEmail(user.getEmail());
 
-		if (!userService.verificationUser(updatedUser, jwt)) {
-			throw new Exception("Utente non autorizzato a modificare il profilo utente con email " + user.getEmail());
-		}
-
 		return userService.updateUser(updatedUser, user, jwt);
 	}
 
 	@DeleteMapping("/{userId}")
-	public String deleteUser(@PathVariable Long userId) throws Exception {
+	public String deleteUser(@PathVariable Long userId, @RequestHeader("Authorization") String jwt) throws Exception {
 
-		userRepository.deleteById(userId);
+		User user = userService.findUserById(userId);
+
+		userService.deleteUser(user, jwt);
 
 		return "User deleted successfully";
 	}

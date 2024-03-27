@@ -12,6 +12,8 @@ public interface UserService {
 
 	public User updateUser(User user,User newUser, String jwt) throws Exception;
 
+	public void deleteUser(User user, String jwt) throws Exception;
+
 	public boolean verificationUser(User user, String jwt) throws Exception;
 
 	public List<User> findAllUser();

@@ -71,6 +71,26 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
+	public void deleteUser(User user, String jwt) throws Exception {
+
+		User userValidated = findUserByJwt(jwt);
+		User userOwner = findUserById(user.getId());
+
+		if (!verificationUser(userOwner, jwt) || !verificationUser(userValidated, jwt)) {
+
+			throw new Exception("Utente non abilitato alla cancellazione " + userValidated.getFullName());
+		}
+
+		userRepository.delete(user);
+
+	}
+
+	@Override
+	public List<User> findAllUser() {
+		return userRepository.findAll();
+	}
+
+	@Override
 	public boolean verificationUser(User user, String jwt) throws Exception {
 
 		User userValidated = findUserByJwt(jwt);
@@ -87,11 +107,6 @@ public class UserServiceImplementation implements UserService {
 		;
 
 		return true;
-	}
-
-	@Override
-	public List<User> findAllUser() {
-		return userRepository.findAll();
 	}
 
 }
