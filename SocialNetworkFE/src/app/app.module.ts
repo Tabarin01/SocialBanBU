@@ -1,13 +1,12 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule } from "./app-routing.module";
 
-//
+//Material
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, provideHttpClient } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-
-import { RouterModule, Routes } from "@angular/router";
 
 //Componenti
 import { AppComponent } from "./app.component";
@@ -17,12 +16,6 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { PostComponent } from "./components/post/post.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-// const routes: Routes = [
-//   { path: "login", component: LoginComponent },
-//   { path: "", redirectTo: "/login", pathMatch: "full" },
-//   { path: "**", redirectTo: "/login", pathMatch: "full" },
-// ];
 
 @NgModule({
   declarations: [
@@ -35,6 +28,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
