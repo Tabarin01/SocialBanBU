@@ -55,6 +55,7 @@ public class AuthController {
 		createdUser.setFullName(fullName);
 		createdUser.setDob(dob);
 		createdUser.setImgProfile(imgProfile);
+		createdUser.setRole(User.Role.GUEST);
 
 		User savedUser = userRepository.save(createdUser);
 

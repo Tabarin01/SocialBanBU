@@ -1,0 +1,207 @@
+* {
+  color: #fff;
+  text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+}
+
+.hero {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
+    url("../../../assets/img/login_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  background-color: #101b1d;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-----LEFT COLUMN-----*/
+
+.left-column {
+  padding: 0.3rem;
+  margin: 2rem;
+  width: 27rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Per allineare l'immagine e l'h1 verticalmente */
+}
+
+.logo img {
+  width: 6rem;
+  margin-right: 0.7rem;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 110%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/*-----RIGHT COLUMN-----*/
+
+.form-box {
+  width: 21.75rem;
+  height: 23.5rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.3rem;
+  margin: 2rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 0.1rem;
+  box-shadow: 0 0.25rem 2rem rgba(212, 212, 212, 0.1);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  border: 1px solid rgba(255, 255, 255, 0.81);
+  position: relative;
+  transition: height 0.5s; /* Aggiungi la transizione per l'altezza */
+}
+
+.socialban img {
+  width: 14rem;
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-evenly;
+  width: 13.75rem;
+  margin: 1rem auto;
+  position: relative;
+  box-shadow: 0 0 0.05rem 0.01rem #1b3038;
+  background-color: #101b1d;
+  border-radius: 2rem;
+}
+
+.toggle-btn {
+  width: calc(13.75rem / 2);
+  padding: 0.625rem 2rem;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 7rem;
+  height: 100%;
+  background: linear-gradient(to right, #0b6389, #0aa5e7);
+  border-radius: 2rem;
+}
+
+.input-group {
+  margin: auto;
+  margin-top: 0.5rem;
+  position: absolute;
+  width: 17.5rem;
+}
+
+.input-field {
+  width: 85%;
+  padding: 10px 5px;
+  margin: 5px 0;
+  border: 5 px solid #999;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.submit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 2rem auto;
+  background: linear-gradient(to right, #0b6389, #0996d3);
+  border: 0px;
+  outline: none;
+  border-radius: 30px;
+  color: rgba(255, 255, 255, 1);
+}
+
+#login {
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#register {
+  left: 27rem;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-left {
+  transform: translateX(-25rem);
+  transition: transform 0.5s;
+}
+
+.form-right {
+  transform: translateX(0rem);
+  transition: transform 0.5s;
+}
+
+.button-left {
+  transform: translateX(6.75rem);
+  transition: transform 0.5s;
+}
+
+.button-right {
+  transform: translateX(0px);
+  transition: transform 0.5s;
+}
+
+.height1 {
+  height: 34rem;
+}
+
+.height2 {
+  height: 23.5rem;
+}
+
+::placeholder {
+  color: rgba(235, 235, 235, 0.85) !important;
+}
+
+.terms {
+  display: flex;
+  font-size: 70%;
+  margin-top: 1rem;
+}
+
+/*-----BREAKPOINTS COLUMN-----*/
+
+@media only screen and (max-width: 900px) {
+  .left-column {
+    display: none;
+  }
+}

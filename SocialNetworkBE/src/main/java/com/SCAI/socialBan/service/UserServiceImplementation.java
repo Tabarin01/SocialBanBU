@@ -74,6 +74,11 @@ public class UserServiceImplementation implements UserService {
 	public boolean verificationUser(User user, String jwt) throws Exception {
 
 		User userValidated = findUserByJwt(jwt);
+
+		if (userValidated.getRole().equals(User.Role.ADMIN)) {
+			return true;
+		}
+
 		User userChecker = findUserById(user.getId());
 
 		if (!userValidated.equals(userChecker)) {
@@ -88,8 +93,5 @@ public class UserServiceImplementation implements UserService {
 	public List<User> findAllUser() {
 		return userRepository.findAll();
 	}
-
-	
-
 
 }

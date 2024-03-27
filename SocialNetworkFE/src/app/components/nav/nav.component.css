@@ -1,0 +1,44 @@
+nav {
+  position: fixed;
+  top: 3.1rem;
+  z-index: 999;
+  left: 20%;
+}
+
+.navContent {
+  background-color: #142329;
+  border: 0.1rem solid #3d474f;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 1rem 0.8rem;
+  height: 3rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.2rem;
+  box-shadow: 0.01rem 0.01rem 0.5rem #00000057;
+}
+
+.navbar input {
+  height: 2.2rem;
+  width: 10rem;
+  padding-left: 1rem;
+  background-color: rgb(16, 24, 26);
+  border: 0.1rem solid #0955757a;
+  box-shadow: none;
+  background-size: 2rem;
+  border-radius: 4rem;
+}
+
+.navContent img {
+  width: 1.5rem;
+  padding-right: 0.5rem;
+}
+
+.navContent a:link,
+.navContent a:visited,
+.navContent a:hover,
+.navContent a:active {
+  color: #11a2e0;
+  text-decoration: none;
+}

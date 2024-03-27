@@ -4,9 +4,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,17 +22,15 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@OnDelete(action = OnDeleteAction.CASCADE)
+
+	@ManyToOne
 	private User user;
 	private String image;
 	private String description;
 	private LocalDateTime createdAt;
 	private List<Long> likes = new ArrayList<>();
-	
-	@OneToMany( cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Comment> comments = new ArrayList<>();
 
 }
-

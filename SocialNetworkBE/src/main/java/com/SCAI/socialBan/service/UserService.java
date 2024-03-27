@@ -15,6 +15,4 @@ public interface UserService {
 	public boolean verificationUser(User user, String jwt) throws Exception;
 
 	public List<User> findAllUser();
-
-
 }
