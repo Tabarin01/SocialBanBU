@@ -205,3 +205,73 @@
     display: none;
   }
 }
+
+/*ANIMAZIONE DEL BOTTONE */
+
+/* Animazione di scossa dei button se non sono validi i form */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+  20% {
+    transform: translateX(5px) rotate(2deg);
+  }
+  30% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  40% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Aggiungi l'animazione al bottone quando viene cliccato */
+.shake-button:active {
+  animation: shake 0.5s ease;
+}
+
+.disabled-button {
+  background: #101b1d;
+}
+
+/*Animazione e css del messaggio di invalidità credenziali e/o email*/
+.error-invalid {
+  color: red;
+  padding-top: 10px;
+  font-size: 13px;
+  animation: error-shake 0.5s ease;
+}
+
+@keyframes error-shake {
+  0% {
+    transform: translateX(0);
+  }
+  10%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  80% {
+    transform: translateX(5px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-5px);
+  }
+  40%,
+  60% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { AuthService } from "../../services/auth-service";
+import { AuthService } from "../../services/Auth/auth.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -8,6 +9,27 @@ import { AuthService } from "../../services/auth-service";
 })
 export class LoginComponent {
   constructor(private authService: AuthService) {}
+
+  emailValid = true;
+  loginCredentialValid = true;
+
+  loginForm = new FormGroup({
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
+
+  registrationForm = new FormGroup({
+    fullName: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+    dob: new FormControl("", [Validators.required]),
+  });
 
   login() {
     const inputGroup = document.querySelector(".input-group") as HTMLElement;
@@ -37,11 +59,36 @@ export class LoginComponent {
     }
   }
 
-  submitLogin() {
-    // Handle login form submission logic here
+  handlerLogin() {
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (response) => {
+        localStorage.setItem("jwt", response.jwt);
+        this.authService.getUserProfile().subscribe();
+        this.loginCredentialValid = true;
+        console.log("Login success");
+      },
+      error: (error) => {
+        this.loginCredentialValid = false;
+        console.log(error.error.message + " " + this.loginCredentialValid);
+      },
+    });
   }
 
-  submitRegister() {
-    // Handle registration form submission logic here
+  handlerRegister() {
+    console.log("register", this.registrationForm.value);
+    this.authService.register(this.registrationForm.value).subscribe({
+      next: (response) => {
+        localStorage.setItem("jwt", response.jwt);
+        this.authService.getUserProfile().subscribe();
+        console.log("Registration success");
+      },
+      error: (error) => {
+        this.emailValid =
+          error.error.message === "Email is already used with another account"
+            ? false
+            : true;
+        console.log(error.error.message + " " + this.emailValid);
+      },
+    });
   }
 }

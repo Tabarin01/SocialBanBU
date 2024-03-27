@@ -1,55 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocialBan</title>
-</head>
-
-<body>
-    <div class="hero">
-        <div class="left-column">
-            <div class="logo">
-                <img src='../../../assets/img/logo.png'>
-                <p>Connect and engage with SocialBan:<br>
-                    Where community meets innovation,<br>
-                    Empowering your social journey.</p>
-            </div>
-            <!--<div class="applinks-container">
+<div class="hero">
+  <div class="left-column">
+    <div class="logo">
+      <img src="../../../assets/img/logo.png" />
+      <p>
+        Connect and engage with SocialBan:<br />
+        Where community meets innovation,<br />
+        Empowering your social journey.
+      </p>
+    </div>
+    <!--<div class="applinks-container">
                 <img id="microsoftstore" class="applinks" src='https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png'>
                 <img id="googleplay" class="applinks" src='https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png'>
             </div>-->
-        </div>
-        <div class="form-box">
-            <div class="socialban">
-                <img src='../../../assets/img/logoalt.png'>
-            </div>
-            <div class="button-box">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" (click)="login()">Log in</button>
-                <button type="button" class="toggle-btn" (click)="register()">Sign up</button>
-            </div>
-            <div class="input-group">
-                <form id="login" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Id" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <button type="button" id="submit-btn-login" class="submit-btn" (click)="submitLogin()">Log in</button>
-                </form>
-                <form id="register" class="input-group">
-                    <input type="text" class="input-field" placeholder="Full name" required>
-                    <input type="text" class="input-field" placeholder="E-mail" required>
-                    <input type="text" class="input-field" placeholder="Address" required>
-                    <input type="text" class="input-field" placeholder="SSN" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <div class="terms">
-                        <label> By signing up, you agree to our <a href="https://generator.lorem-ipsum.info/terms-and-conditions" target="_blank">Terms</a>.</label>
-                    </div>
-                    <button type="button" id="submit-btn-register" class="submit-btn" (click)="submitRegister()">Sign up</button>
-                </form>
-            </div>  
-        </div>
+  </div>
+  <div class="form-box">
+    <div class="socialban">
+      <img src="../../../assets/img/logoalt.png" />
     </div>
-</body>
+    <div class="button-box">
+      <div id="btn"></div>
+      <button type="button" class="toggle-btn" (click)="login()">Log in</button>
+      <button type="button" class="toggle-btn" (click)="register()">
+        Sign up
+      </button>
+    </div>
+    <!-- Form for the Login -->
+    <div class="input-group">
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="handlerLogin()"
+        id="login"
+        class="input-group"
+      >
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Enter email"
+          formControlName="email"
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
 
-</html>
+        <p class="error-invalid" *ngIf="!loginCredentialValid">
+          Invalid credential
+        </p>
+        <button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          id="submit-btn-login"
+          class="submit-btn shake-button"
+          [ngClass]="{
+            'disabled-button': !loginForm.valid,
+            'shake-button': !loginForm.valid
+          }"
+        >
+          Log in
+        </button>
+      </form>
+
+      <!-- Form for registration -->
+      <form
+        [formGroup]="registrationForm"
+        (ngSubmit)="handlerRegister()"
+        id="register"
+        class="input-group"
+      >
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Full name"
+          formControlName="fullName"
+        />
+
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Es. 01/01/2000"
+          formControlName="dob"
+        />
+
+        <p class="error-invalid" *ngIf="!emailValid">Invalid email</p>
+        <input
+          type="text"
+          class="input-field"
+          placeholder="E-mail"
+          formControlName="email"
+        />
+
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+        <div class="terms">
+          <label>
+            By signing up, you agree to our
+            <a
+              href="https://generator.lorem-ipsum.info/terms-and-conditions"
+              target="_blank"
+              >Terms</a
+            >.</label
+          >
+        </div>
+        <button
+          [disabled]="!registrationForm.valid"
+          type="submit"
+          id="submit-btn-register"
+          [ngClass]="{
+            'disabled-button': !registrationForm.valid,
+            'shake-button': !registrationForm.valid
+          }"
+          class="submit-btn"
+        >
+          Sign up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -42,11 +42,10 @@ public class AuthController {
 		String password = user.getPassword();
 		String fullName = user.getFullName();
 		String dob = user.getDob();
-		String imgProfile = user.getImgProfile();
 
 		User isExistEmail = userRepository.findByEmail(email);
 		if (isExistEmail != null) {
-			throw new Exception("Email is already used with another account " + email);
+			throw new Exception("Email is already used with another account");
 		}
 
 		User createdUser = new User();
@@ -54,7 +53,7 @@ public class AuthController {
 		createdUser.setPassword(passwordEncoder.encode(password));
 		createdUser.setFullName(fullName);
 		createdUser.setDob(dob);
-		createdUser.setImgProfile(imgProfile);
+		createdUser.setImgProfile("https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png");
 		createdUser.setRole(User.Role.GUEST);
 
 		User savedUser = userRepository.save(createdUser);
@@ -86,7 +85,7 @@ public class AuthController {
 		AuthResponse authResponse = new AuthResponse();
 
 		authResponse.setJwt(token);
-		authResponse.setMessage("signup success");
+		authResponse.setMessage("login success");
 
 		return authResponse;
 

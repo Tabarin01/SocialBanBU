@@ -1,4 +1,11 @@
 <div>
-  <!-- <app-login></app-login> -->
-  <app-home-page />
+  <div>
+    <ng-container *ngIf="user; else loginTemplate">
+      <app-nav />
+      <app-home-page />
+    </ng-container>
+    <ng-template #loginTemplate>
+      <app-login />
+    </ng-template>
+  </div>
 </div>
