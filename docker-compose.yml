@@ -1,0 +1,33 @@
+version: "3.8"
+
+services: 
+  frontend:
+    build: 
+      context: ./SocialNetworkFE
+      dockerfile: Dockerfile
+    ports: 
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+
+  backend:
+    build: 
+      context: ./SocialNetworkBE
+      dockerfile: Dockerfile
+    ports: 
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    depends_on: 
+      - mysql_server
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT}
+
+  mysql_server:
+    image: mysql:8.0
+    ports: 
+      - "$MYSQL_TCP_PORT:$MYSQL_TCP_PORT"
+    expose:
+      - "$MYSQL_TCP_PORT"  
+    environment: 
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_TCP_PORT
