@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "7a9064f8-4278-4507-bd83-4f9c74667c09",
+		"name": "SocialBan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33716375"
+	},
+	"item": [
+		{
+			"name": "Users Request",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 406\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(406);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields - timestamp, status, error, trace, message, and path\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.timestamp).to.exist;\r",
+									"  pm.expect(responseData.status).to.exist;\r",
+									"  pm.expect(responseData.error).to.exist;\r",
+									"  pm.expect(responseData.trace).to.exist;\r",
+									"  pm.expect(responseData.message).to.exist;\r",
+									"  pm.expect(responseData.path).to.exist;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Timestamp is in a valid date format\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData.timestamp).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z$/, \"Timestamp should be in valid date format\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Error message is not empty\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData.error).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Sandro\",\r\n    \"email\":\"Luca@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDY4ODcsImV4cCI6MTcxMTYzMzI4NywiZW1haWwiOiJhZG1pbkBzb2NpYWxCYW4uY29tIn0.aW2d9PR1gcY_TJyoDnTbEZVdxy1OJqQCs2_D52-JKBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/users/103",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users",
+								"103"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDcyNDIsImV4cCI6MTcxMTYzMzY0MiwiZW1haWwiOiJsdWNhQGdtYWlsLmNvbSJ9.eynDuuEtDbg8vRC90SyNkYQ6wEuHEYMuR7rPd3wlhvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/users/allUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users",
+								"allUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDcyNDIsImV4cCI6MTcxMTYzMzY0MiwiZW1haWwiOiJsdWNhQGdtYWlsLmNvbSJ9.eynDuuEtDbg8vRC90SyNkYQ6wEuHEYMuR7rPd3wlhvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Super CHAD\",\r\n    \"email\" : \"admin@socialBan.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/users/editProfile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users",
+								"editProfile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post Request",
+			"item": [
+				{
+					"name": "Create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDY4ODcsImV4cCI6MTcxMTYzMzI4NywiZW1haWwiOiJhZG1pbkBzb2NpYWxCYW4uY29tIn0.aW2d9PR1gcY_TJyoDnTbEZVdxy1OJqQCs2_D52-JKBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Post di Sandro\",\r\n    \"image\":\"https://images.unsplash.com/photo-1579761314336-f27ea6297ae1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\r\n    \"description\":\"Viva il nazismo!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDE4NzMsImV4cCI6MTcxMTYyODI3MywiZW1haWwiOiJhZG1pbkBzb2NpYWxCYW4uY29tIn0.Kclm6JPYzISzN1_lqfB6iNVijyiylfKIee7RbzOaiTo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Posto modificato \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/post/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDcyNDIsImV4cCI6MTcxMTYzMzY0MiwiZW1haWwiOiJsdWNhQGdtYWlsLmNvbSJ9.eynDuuEtDbg8vRC90SyNkYQ6wEuHEYMuR7rPd3wlhvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDI3NzEsImV4cCI6MTcxMTYyOTE3MSwiZW1haWwiOiJhZG1pbkBzb2NpYWxCYW4uY29tIn0.67MygkSB7jtC1OFdG7XWFiSMZMKI6lQuASUsAVq1A8c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/post/58",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post",
+								"58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE0NjM1ODYsImV4cCI6MTcxMTU0OTk4NiwiZW1haWwiOiJzaW1vbmVAZ21haWwuY29tIn0.R6kKWmvbNa0QiofybiRtt-fQziOy0doPJRkt2rhskP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/post/1/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post",
+								"1",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE0NjI1NzAsImV4cCI6MTcxMTU0ODk3MCwiZW1haWwiOiJsdWNhQGdtYWlsLmNvbSJ9.78rTd3VPLG0uQsiZ2-qtBT1Aga72OC9Yn2KRrpwDnZI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"Sucune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/post/1/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"post",
+								"1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Request",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Luca\",\r\n    \"email\":\"luca@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"dob\":\"16/09/1996\",\r\n    \"imgProfile\":\"https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {       \"email\":\"admin@socialBan.com\",\r\n       \"password\":\"admin1234\"\r\n   }\r\n//\"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDY4ODcsImV4cCI6MTcxMTYzMzI4NywiZW1haWwiOiJhZG1pbkBzb2NpYWxCYW4uY29tIn0.aW2d9PR1gcY_TJyoDnTbEZVdxy1OJqQCs2_D52-JKBE\"\r\n\r\n\r\n//   {\r\n//       \"email\": \"luca@gmail.com\",\r\n//      \"password\": \"123456\"\r\n//   }\r\n//     \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDcyNDIsImV4cCI6MTcxMTYzMzY0MiwiZW1haWwiOiJsdWNhQGdtYWlsLmNvbSJ9.eynDuuEtDbg8vRC90SyNkYQ6wEuHEYMuR7rPd3wlhvQ\",\r\n\r\n\r\n\r\n\r\n//  {\r\n//      \"email\": \"sandro@gmail.com\",\r\n//      \"password\": \"123456\"\r\n//  }\r\n//     \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE1NDY4NTksImV4cCI6MTcxMTYzMzI1OSwiZW1haWwiOiJzYW5kcm9AZ21haWwuY29tIn0.an28xPUmDxQ_CwuohS3P9kosg6fdD-88_bepbsWDns4\",\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE0NzE4MjUsImV4cCI6MTcxMTU1ODIyNSwiZW1haWwiOiJzaW1vbmVAZ21haWwuY29tIn0.Lgd3sWr3FYsTRzkdHSVw_RZepOnGbxdDfmCxuHsxJSM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
