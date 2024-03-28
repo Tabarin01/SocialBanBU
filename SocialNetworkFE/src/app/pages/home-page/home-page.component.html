@@ -53,7 +53,7 @@
     </div>
     <hr />
     <div class="postFeed">
-      <div *ngFor="let item of posts">
+      <div *ngFor="let item of posts.reverse()">
         <app-posts [post]="item" />
       </div>
     </div>
