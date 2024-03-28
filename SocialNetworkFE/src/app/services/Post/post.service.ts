@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, catchError, tap, throwError } from "rxjs";
   providedIn: "root",
 })
 export class PostService {
-  private baseUrl = "http://localhost:5454";
+  private baseUrl = "http://192.168.1.196:5454";
 
   constructor(private http: HttpClient) {}
 

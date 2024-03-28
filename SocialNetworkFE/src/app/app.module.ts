@@ -20,6 +20,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { PostsComponent } from "./components/posts/posts.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormPostsComponent } from "./components/form-post/form-post.component";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FormPostsComponent } from "./components/form-post/form-post.component";
     HomePageComponent,
     FormPostsComponent,
     PostsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
