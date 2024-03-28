@@ -15,41 +15,20 @@
     </div>
     <hr />
     <div class="feedPost">
-      <app-post />
-      <img
-        src="https://images.lonelyplanetitalia.it/static/places/new-york-city-319.jpg?q=90&p=2400%7C1350%7Cmax&s=d0b66f564422dd0d2d51bc78ee7c7dbd"
-      />
-      <img
-        src="https://images.lonelyplanetitalia.it/static/places/new-york-city-319.jpg?q=90&p=2400%7C1350%7Cmax&s=d0b66f564422dd0d2d51bc78ee7c7dbd"
-      />
-      <img
-        src="https://images.lonelyplanetitalia.it/static/places/new-york-city-319.jpg?q=90&p=2400%7C1350%7Cmax&s=d0b66f564422dd0d2d51bc78ee7c7dbd"
-      />
-      <img
-        src="https://images.lonelyplanetitalia.it/static/places/new-york-city-319.jpg?q=90&p=2400%7C1350%7Cmax&s=d0b66f564422dd0d2d51bc78ee7c7dbd"
-      />
+      <div *ngFor="let item of posts">
+        <app-posts [post]="item" />
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="userList">
+<div class="userList">
+  <div *ngFor="let user of users">
     <ul>
-      <li><a>Current users:</a></li>
+      <li>
+        <img [src]="user.imgProfile" /><a>{{ user.fullName }}</a>
+      </li>
       <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pinuzzo Panino</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
-      <hr />
-      <li><img src="../../assets/img/UserIco.png" /><a>Pino Pane</a></li>
     </ul>
   </div>
 </div>

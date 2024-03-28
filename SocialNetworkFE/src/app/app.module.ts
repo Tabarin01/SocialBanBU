@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, provideHttpClient } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialogModule } from "@angular/material/dialog";
 
 //Componenti
 import { AppComponent } from "./app.component";
@@ -16,6 +19,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { PostComponent } from "./components/post/post.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { PostsComponent } from "./components/posts/posts.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     FooterComponent,
     HomePageComponent,
     PostComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDialogModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],

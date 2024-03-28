@@ -81,10 +81,7 @@ hr {
   background: #3d474f;
 }
 
-.feedPost img {
-  max-width: 30rem;
-  margin: 1rem; /* Aggiunge spazio tra le immagini */
-}
+
 
 .userList {
   background-color: #142329;
