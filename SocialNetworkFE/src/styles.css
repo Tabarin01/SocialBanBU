@@ -4,7 +4,7 @@
   font-family: sans-serif;
 }
 body {
-  background-color: #040f0f;
+  background-color: #000000;
   background-image: url("./assets/img/Pattern.png");
   background-position: center;
   background-size: cover;
@@ -12,5 +12,11 @@ body {
   background-attachment: fixed;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
