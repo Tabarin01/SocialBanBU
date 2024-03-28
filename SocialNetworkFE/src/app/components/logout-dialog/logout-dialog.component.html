@@ -2,6 +2,6 @@
   <p><strong>Logout Warning: </strong>Are you sure you want to log out?</p>
   <div>
     <button (click)="onNoClick()">No Thanks</button>
-    <button (click)="handleLogout()">Yes</button>
+    <button (click)="handleLogout()" (click)="onNoClick()">Yes</button>
   </div>
 </div>
