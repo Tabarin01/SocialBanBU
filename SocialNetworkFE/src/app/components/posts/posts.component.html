@@ -18,5 +18,23 @@
       {{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}
     </p>
   </mat-card-content>
-  <mat-card-actions class="flex justify-between"> </mat-card-actions>
+  <div>
+    <mat-icon>favorite</mat-icon>
+    <mat-icon>comment_alert</mat-icon>
+  </div>
+  <div class="comment-container" *ngFor="let comment of post.comments">
+    <div>
+      <div style="display: flex">
+        <div>
+          <img mat-card-avatar [src]="comment.user.imgProfile" alt="Icon" />
+        </div>
+        <div>
+          <span>{{ comment.user.fullName }}</span>
+        </div>
+      </div>
+      <div class="comment-text">
+        <span>{{ comment.text }}</span>
+      </div>
+    </div>
+  </div>
 </mat-card>
