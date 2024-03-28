@@ -50,13 +50,13 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public User updateUser(User user, User newUser, String jwt) throws Exception {
 
-		User oldUser = findUserByJwt(jwt);
+		User oldUser = findUserById(user.getId());
 
 		if (!verificationUser(user, jwt)) {
 			throw new Exception("User not authorized");
 		}
 
-		oldUser.setId(oldUser.getId());
+		oldUser.setId(oldUser.getId());	
 
 		if (newUser.getFullName() != null) {
 			oldUser.setFullName(newUser.getFullName());
