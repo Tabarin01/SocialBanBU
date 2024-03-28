@@ -1,0 +1,29 @@
+.avviso {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center; /* Centra il testo */
+}
+
+.avviso p {
+    margin-bottom: 15px; /* Aggiunge spazio tra il testo e i pulsanti */
+}
+
+.avviso button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px; /* Aggiunge spazio tra i pulsanti */
+}
+
+.avviso button:hover {
+    background-color: #c82333;
+}

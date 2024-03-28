@@ -19,7 +19,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { PostsComponent } from "./components/posts/posts.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormPostsComponent } from "./components/form-post/form-post.component";
-import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { PostCommentComponent } from "./components/post-comment/post-comment.component";
 
 @NgModule({
   declarations: [

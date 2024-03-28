@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { AuthService } from "src/app/services/Auth/auth.service";
+import { LogoutDialogComponent } from "../logout-dialog/logout-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: "app-nav",
@@ -7,9 +8,11 @@ import { AuthService } from "src/app/services/Auth/auth.service";
   styleUrls: ["./nav.component.css"],
 })
 export class NavComponent {
-  constructor(private authService: AuthService) {}
 
-  handleLogout() {
-    this.authService.logout();
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LogoutDialogComponent, {
+    });
   }
 }
