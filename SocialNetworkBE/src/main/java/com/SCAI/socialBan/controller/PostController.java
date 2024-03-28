@@ -44,6 +44,15 @@ public class PostController {
 		return posts;
 	}
 
+	@GetMapping("/{userId}")
+	public List<Post> getAllUserPost(@PathVariable Long userId) throws Exception {
+
+		List<Post> posts = postService.findAllPostByUserId(userId);
+
+		return posts;
+
+	}
+
 	@DeleteMapping("/{postId}")
 	public String deletePost(@PathVariable Long postId, @RequestHeader("Authorization") String jwt) throws Exception {
 		postService.deletePost(postId, jwt);
