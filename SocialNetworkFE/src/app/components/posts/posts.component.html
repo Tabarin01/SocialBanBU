@@ -4,6 +4,7 @@
       <img mat-card-avatar [src]="post.user.imgProfile" alt="Icon" />
       <mat-card-title>{{ post.user.fullName }}</mat-card-title>
       <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
+      <mat-icon (click)="deletePost()">delete</mat-icon>
     </mat-card-header>
     <img class="" mat-card-image [src]="post.image" alt="Photo of pizza" />
     <mat-card-content>

@@ -24,5 +24,10 @@ export class PostsComponent {
     });
   }
 
+  deletePost(){
+    this.postService.deletePost(this.post.id).subscribe();
+  }
+  
+
   
 }

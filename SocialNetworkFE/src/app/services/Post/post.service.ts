@@ -50,6 +50,19 @@ export class PostService {
     );
   }
 
+  deletePost(id: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.delete(`${this.baseUrl}/api/post/${id}`, { headers }).pipe(
+      tap((deletedPost: any) => {
+        const currentState = this.postSubject.value;
+        const updatedPost = currentState.posts.filter(
+          (item: any) => item.id !== id
+        );
+        this.postSubject.next({ ...currentState, posts: updatedPost });
+      })
+    );
+  }
+
   createComment(id: any, comment: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http
@@ -82,24 +95,3 @@ export class PostService {
     );
   }
 }
-
-// createComment(id: any, comment: any): Observable<any> {
-//   const headers = this.getHeaders();
-//   return this.http
-//     .put(`${this.baseUrl}/api/post/${id}/comment`, {
-//       headers,
-//     })
-//     .pipe(
-//       tap((updatedPost: any) => {
-//         //debug
-//         console.log(this.postSubject);
-
-//         const currentState = this.postSubject.value;
-//         const updatedPosts = currentState.posts.add((item: any) =>
-//           item.id === updatedPost.id ? updatedPost : item
-//         );
-//         this.postSubject.next({ ...currentState, posts: updatedPosts });
-//         console.log(this.postSubject);
-//       })
-//     );
-// }
