@@ -15,7 +15,7 @@
       {{ post.description }}
     </p>
     <p>
-      {{ post.createdAt }}
+      {{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}
     </p>
   </mat-card-content>
   <mat-card-actions class="flex justify-between"> </mat-card-actions>

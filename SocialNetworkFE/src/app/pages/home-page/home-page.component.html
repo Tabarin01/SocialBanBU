@@ -21,7 +21,7 @@
     </div>
     <hr />
     <div class="feedPost">
-      <div *ngFor="let item of posts">
+      <div *ngFor="let item of posts.reverse()">
         <app-posts [post]="item" />
       </div>
     </div>

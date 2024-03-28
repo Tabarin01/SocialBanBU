@@ -82,7 +82,6 @@ public class UserServiceImplementation implements UserService {
 		}
 
 		userRepository.delete(user);
-
 	}
 
 	@Override

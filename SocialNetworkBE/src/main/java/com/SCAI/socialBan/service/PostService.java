@@ -9,7 +9,9 @@ public interface PostService {
 
 	public Post createPost(Post post, User user);
 	public Post findPostById(Long id) throws Exception;
+	public List<Post> findAllPostByUserId(Long userId) throws Exception;
 	public void deletePost(Long id, String jwt) throws Exception;
+	public void deletePostByUserId(Long id, String jwt) throws Exception;
 	public Post updatePost(Post post, Long id, String jwt) throws Exception;
 	public List<Post> findAllPost();
 	public Post likePost(Long postId, User user) throws Exception;

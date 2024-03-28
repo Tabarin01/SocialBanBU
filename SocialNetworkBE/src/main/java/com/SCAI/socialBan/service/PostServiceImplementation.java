@@ -16,11 +16,18 @@ import com.SCAI.socialBan.repository.PostRepository;
 @Service
 public class PostServiceImplementation implements PostService {
 
+	// Provided dependency from post repository and userService
 	@Autowired
 	private PostRepository postRepository;
 
 	@Autowired
 	private UserService userService;
+
+	// ------------------------------------------------------
+
+	// Methods
+
+	// CREATION POST
 
 	@Override
 	public Post createPost(Post post, User user) {
@@ -36,6 +43,8 @@ public class PostServiceImplementation implements PostService {
 		return postRepository.save(createdPost);
 	}
 
+	// SEARCHING POST
+
 	@Override
 	public Post findPostById(Long id) throws Exception {
 		Optional<Post> opt = postRepository.findById(id);
@@ -49,13 +58,35 @@ public class PostServiceImplementation implements PostService {
 	}
 
 	@Override
+	public List<Post> findAllPost() {
+		return postRepository.findAll();
+	}
+
+	@Override
+	public List<Post> findAllPostByUserId(Long userId) throws Exception {
+
+		List<Post> listaPost = new ArrayList<>();
+		List<Post> allPosts = postRepository.findAll();
+
+		for (Post post : allPosts) {
+			if (post.getUser().getId() == userId) {
+				listaPost.add(post);
+			}
+		}
+
+		return listaPost;
+	}
+
+	// DELETE POSTS
+
+	@Override
 	public void deletePost(Long id, String jwt) throws Exception {
 		// Il metodo di deleteById(id) se lo trova lo elimina altrimenti ignora,
-		// perciÃƒÂ² non dovrebbe servire il find.
+		// perciò non dovrebbe servire il find.
 		// findPostById(id);
 		Post post = findPostById(id);
 		User postOwner = userService.findUserById(post.getUser().getId());
-		if(!userService.verificationUser(postOwner,jwt)){
+		if (!userService.verificationUser(postOwner, jwt)) {
 			throw new Exception("Utente non autorizzato all'eliminazione ");
 		}
 
@@ -63,43 +94,54 @@ public class PostServiceImplementation implements PostService {
 	}
 
 	@Override
+	public void deletePostByUserId(Long userId, String jwt) throws Exception {
+
+		List<Post> listaPostUser = findAllPostByUserId(userId);
+
+		User user = userService.findUserById(userId);
+
+		for (Post post : listaPostUser) {
+			deletePost(post.getId(), jwt);
+		}
+
+		userService.deleteUser(user, jwt);
+	}
+
+	//UPDATE POST
+
+	@Override
 	public Post updatePost(Post post, Long id, String jwt) throws Exception {
-		
-		//old post to update
+
+		// old post to update
 		Post oldPost = findPostById(id);
 		User userPostOwner = userService.findUserById(oldPost.getUser().getId());
 
-		if(!userService.verificationUser(userPostOwner,jwt)){
+		if (!userService.verificationUser(userPostOwner, jwt)) {
 			throw new Exception("Utente non autorizzato alla modifica ");
-					// + "USER PROPRIETARIO     "
-					// + userPostOwner.getFullName() + "    |   "
-		 			// + userPostOwner.getId() + "    |    "
-		 			// + userPostOwner.getEmail()
-					// + "USER MODIFICANTE      "
-					// + userPostEditing.getFullName() + "    |   "
-					// + userPostEditing.getId() + "    |    "
-		 			// + userPostEditing.getEmail());
+			// + "USER PROPRIETARIO "
+			// + userPostOwner.getFullName() + " | "
+			// + userPostOwner.getId() + " | "
+			// + userPostOwner.getEmail()
+			// + "USER MODIFICANTE "
+			// + userPostEditing.getFullName() + " | "
+			// + userPostEditing.getId() + " | "
+			// + userPostEditing.getEmail());
 		}
-		
-		//updating all post attributes
-		if(post.getTitle() != null) {
+
+		// updating all post attributes
+		if (post.getTitle() != null) {
 			oldPost.setTitle(post.getTitle());
 		}
-		
-		if(post.getImage() != null) {
+
+		if (post.getImage() != null) {
 			oldPost.setImage(post.getImage());
 		}
-		
-		if(post.getDescription() != null) {	
+
+		if (post.getDescription() != null) {
 			oldPost.setDescription(post.getDescription());
 		}
-		
-		return postRepository.save(oldPost);
-	}
 
-	@Override
-	public List<Post> findAllPost() {
-		return postRepository.findAll();
+		return postRepository.save(oldPost);
 	}
 
 	@Override

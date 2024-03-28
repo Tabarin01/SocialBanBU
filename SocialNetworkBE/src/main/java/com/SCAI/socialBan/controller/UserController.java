@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.SCAI.socialBan.model.User;
 import com.SCAI.socialBan.repository.UserRepository;
+import com.SCAI.socialBan.service.PostService;
 import com.SCAI.socialBan.service.UserService;
 
 @RestController
@@ -22,6 +23,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private PostService postService;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -52,8 +56,8 @@ public class UserController {
 
 		User user = userService.findUserById(userId);
 
-		userService.deleteUser(user, jwt);
-
+		postService.deletePostByUserId(user.getId(),jwt);
+		
 		return "User deleted successfully";
 	}
 
