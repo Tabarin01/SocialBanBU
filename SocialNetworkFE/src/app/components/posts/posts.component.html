@@ -16,7 +16,9 @@
     </mat-card-content>
     <div>
       <mat-icon>favorite</mat-icon>
-      <mat-icon>comment_alert</mat-icon>
+      <label for="{{ post.id }}">
+        <mat-icon>comment_alert</mat-icon>
+      </label>
     </div>
     <div class="comment-container" *ngFor="let comment of post.comments">
       <div>
@@ -31,7 +33,22 @@
         <div class="comment-text">
           <span>{{ comment.text }}</span>
         </div>
+        <div>
+          <span>
+            {{ comment.createdAt | date : "HH:mm, dd MMMM yyyy" }}
+          </span>
+        </div>
       </div>
+    </div>
+    <div class="container-comment-form">
+      <input
+        class="comment-form"
+        type="text"
+        id="{{ post.id }}"
+        placeholder="Aggiungi un commento..."
+        [(ngModel)]="comment.text"
+      />
+      <button (click)="pushComment(post.id)">Pubblica</button>
     </div>
   </mat-card>
 </div>
