@@ -1,6 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { PostCommentComponent } from "../post-comment/post-comment.component";
-import { MatDialog } from "@angular/material/dialog";
 import { PostService } from "src/app/services/Post/post.service";
 
 @Component({
