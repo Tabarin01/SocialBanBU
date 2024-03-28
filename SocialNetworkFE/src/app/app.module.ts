@@ -17,9 +17,9 @@ import { LoginComponent } from "./pages/login/login.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
-import { PostComponent } from "./components/post/post.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PostsComponent } from "./components/posts/posts.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormPostsComponent } from "./components/form-post/form-post.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { PostsComponent } from "./components/posts/posts.component";
     NavComponent,
     FooterComponent,
     HomePageComponent,
-    PostComponent,
+    FormPostsComponent,
     PostsComponent,
   ],
   imports: [
