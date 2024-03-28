@@ -10,3 +10,25 @@
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
 }
+
+
+.comment-container {
+  background-color: rgb(19, 72, 89);
+  width: 100%;
+  height: auto; /* Utilizzo 'auto' per adattarsi al contenuto dei commenti */
+  color: rgb(255, 255, 255);
+  padding: 10px; /* Spazio interno per migliorare la leggibilità */
+  margin-bottom: 10px; /* Spazio inferiore tra i commenti */
+}
+
+.comment-container img {
+  width: 30px; /* Dimensioni dell'immagine dell'utente */
+  height: 30px;
+  border-radius: 50%; /* Per arrotondare l'immagine */
+  margin-right: 10px; /* Spazio a destra dell'immagine */
+}
+
+.comment-text {
+  display: flex;
+  align-items: center; /* Centra verticalmente il testo rispetto all'immagine */
+}

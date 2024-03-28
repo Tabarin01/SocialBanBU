@@ -18,7 +18,8 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Post {
-	@Id
+	
+	@Id()
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;

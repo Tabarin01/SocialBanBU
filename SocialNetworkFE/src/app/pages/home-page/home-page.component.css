@@ -15,19 +15,52 @@ body {
   margin: 0;
 }
 
-/* Elementi con posizione sticky */
-.sticky {
-  position: sticky;
-  top: 1rem;
+header {
+  background-color: #03080a00;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 3.1rem;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
-/* Colonna centrale post-profilo*/
-.centralColumn {
-  background-color: #000000;
-  border-right: 0.13rem solid #252525;
-  border-left: 0.13rem solid #252525;
-  width: 35rem;
+.searchInput input {
+  height: 2.2rem;
+  width: 10rem;
+  padding-left: 1rem;
+  background-color: rgb(16, 24, 26);
+  border: 0.1rem solid #0955757a;
+  box-shadow: none;
+  background-size: 2rem;
+  border-radius: 4rem;
+}
+
+.searchInput img {
+  width: 1.5rem;
+  padding-right: 0.5rem;
+}
+
+.logout img {
+  width: 1.7rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+header .logo {
+  width: 2rem;
+  padding: 0.5rem;
+}
+
+.feed {
   height: 100%;
+  margin-top: 0;
+  background-color: #14232900;
+  border-left: 0.1rergba (20, 35, 41, 0) #3d474f;
+  border-right: 0.1rem solid #3d474f;
+  width: 35rem;
 }
 
 .postForm {
@@ -70,61 +103,19 @@ hr {
   background: #252525;
 }
 
+
 /* Colonna destra search-lista utenti */
 .rightColumn {
   background-color: #14232900;
   padding: 0 1rem;
   padding-right: 1.3rem;
+  border-radius: 0.2rem;
+  box-shadow: 0.01rem 0.01rem 0.5rem #00000057;
   position: sticky;
-  top: 0;
-  z-index: 999;
-  width: 15rem;
-  margin: 0.9rem 0.9rem;
-  font-size: 100%;
-}
-
-.rightColumn .inputSearch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rightColumn input {
-  height: 2.1rem;
-  width: 100%;
-  padding-left: 1rem;
-  background-color: #252525;
-  border: none;
-  box-shadow: none;
-  background-size: 2rem;
-  border-radius: 4rem;
-  background-image: url("../../../assets/img/SearchIco.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.rightColumn .magnifyingGlass {
-  width: 1.7rem;
-  padding: 0.5rem;
-  margin-left: auto;
-}
-
-.rightColumn input::placeholder {
-  color: #c2c2c2a1;
-}
-
-.userList {
-  background-color: #161a1d;
-  padding: 0.1rem 1rem;
-  border-radius: 1rem;
-  margin-top: 1rem;
-}
-
-.userList h1 {
-  font-size: 190%;
-  margin-top: 0.6rem;
-  margin-bottom: 0.4rem;
-  font-weight: 400;
+  top: 4rem;
+  z-index: 1999;
+  right: 21.15%;
+  max-width: 12rem;
 }
 
 .userList ul {

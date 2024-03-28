@@ -5,10 +5,10 @@
     <img src="../../../assets/img/ExitIco.png" alt="Icona cazzi" />
   </div>
   <div class="searchInput">
-    <img src="../../assets/img/SearchIco.png" /><input
+    <!-- <img src="../../assets/img/SearchIco.png" /><input
       type="text"
       placeholder="Search SocialBan"
-    />
+    /> -->
   </div>
 </header>
 
@@ -21,7 +21,7 @@
     </div>
     <hr />
     <div class="feedPost">
-      <div *ngFor="let item of posts">
+      <div *ngFor="let item of posts.reverse()">
         <app-posts [post]="item" />
       </div>
     </div>
