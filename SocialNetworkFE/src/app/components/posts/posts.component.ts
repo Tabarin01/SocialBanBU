@@ -49,10 +49,4 @@ export class PostsComponent {
       }
     });
   }
-
-  reload(){
-    window.location.reload()
-  }
-
-  
 }
