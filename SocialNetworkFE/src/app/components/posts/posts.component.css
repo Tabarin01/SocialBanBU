@@ -8,5 +8,27 @@
 
 .example-header-image {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+
   background-size: cover;
+}
+
+.comment-container {
+  background-color: rgb(19, 72, 89);
+  width: 100%;
+  height: auto;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-text {
+  display: flex;
+  align-items: center; /* Centra verticalmente il testo rispetto all'immagine */
 }

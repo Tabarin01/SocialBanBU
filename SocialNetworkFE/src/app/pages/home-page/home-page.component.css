@@ -1,125 +1,167 @@
+/* Reset e stili globali */
 * {
   color: #fff;
+  box-sizing: border-box;
 }
 
+body {
+  height: 100%;
+}
+
+/* Hero */
 .hero {
   display: flex;
   justify-content: center;
-  position: relative;
+  margin: 0;
 }
 
-header {
-  background-color: #12323f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 0.1rem solid #3d474f;
-  height: 3.1rem;
-  box-shadow: 0.01rem 0.01rem 0.5rem #00000057;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
+/* Elementi con posizione sticky */
+.sticky {
+  position: sticky;
+  top: 1rem;
 }
 
-.logout img {
-  width: 1.7rem;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-header .logo {
-  width: 1.7rem;
-  padding: 0.5rem;
-}
-
-.feed {
-  border-radius: 0.2rem;
-  box-shadow: 0.01rem 0.01rem 0.5rem #00000057;
+/* Colonna centrale post-profilo*/
+.centralColumn {
+  background-color: #000000;
+  border-right: 0.13rem solid #252525;
+  border-left: 0.13rem solid #252525;
+  width: 35rem;
   height: 100%;
-  margin-top: 4rem; /* Aggiorna questo margine in base all'altezza combinata di header e userList */
-  background-color: #142329;
-  border: 0.1rem solid #3d474f;
-  width: 30rem;
 }
 
-.feedInput {
+.postForm {
   display: flex;
   justify-content: center;
 }
 
-.feed input {
-  height: 2.2rem;
-  width: 90%;
+.centralColumn input {
+  height: 5rem;
+  width: 100%;
   background-image: url("../../../assets/img/PostFeedIco.png");
   background-repeat: no-repeat;
   background-position: right center;
   padding-left: 1rem;
-  background-color: #0c1314;
-  border: 0.1rem solid #0955757a;
+  background-color: #000000;
+  border: none;
   box-shadow: none;
-  background-size: 1.8rem; /* Imposta la dimensione dell'immagine di sfondo */
-  border-radius: 0.6rem;
-  margin: 0.7rem;
+  background-size: 2.3rem;
+  font-size: 150%;
 }
 
-.feed input::placeholder,
-navbar input::placeholder {
+.centralColumn input::placeholder {
   color: #11a2e0;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-.feedPost {
+.centralColumn input:hover {
+  cursor: pointer;
+}
+
+.postFeed {
   display: flex;
   justify-content: center;
-  flex-direction: column; /* Imposta la direzione dei flex items su colonna */
+  flex-direction: column;
 }
 
 hr {
   border: 0;
-  height: 2px;
-  background: #3d474f;
+  height: 0.13rem;
+  background: #252525;
 }
 
-
-.userList {
-  background-color: #142329;
-  border: 0.1rem solid #3d474f;
+/* Colonna destra search-lista utenti */
+.rightColumn {
+  background-color: #14232900;
   padding: 0 1rem;
   padding-right: 1.3rem;
-  border-radius: 0.2rem;
-  box-shadow: 0.01rem 0.01rem 0.5rem #00000057;
-  position: fixed;
-  top: 4rem;
+  position: sticky;
+  top: 0;
   z-index: 999;
-  right: 21.15%;
-  max-width: 12rem;
+  width: 15rem;
+  margin: 0.9rem 0.9rem;
+  font-size: 100%;
+}
+
+.rightColumn .inputSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightColumn input {
+  height: 2.1rem;
+  width: 100%;
+  padding-left: 1rem;
+  background-color: #252525;
+  border: none;
+  box-shadow: none;
+  background-size: 2rem;
+  border-radius: 4rem;
+  background-image: url("../../../assets/img/SearchIco.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.rightColumn .magnifyingGlass {
+  width: 1.7rem;
+  padding: 0.5rem;
+  margin-left: auto;
+}
+
+.rightColumn input::placeholder {
+  color: #c2c2c2a1;
+}
+
+.userList {
+  background-color: #161a1d;
+  padding: 0.1rem 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.userList h1 {
+  font-size: 190%;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-weight: 400;
 }
 
 .userList ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  font-size: 130%;
 }
 
 .userList li {
   display: flex;
   justify-content: left;
   align-items: center;
-  margin: 0.7rem 0;
+  margin: 1rem 0;
   text-align: left;
 }
 
 .userList img {
   width: 2rem;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
 }
 
 .userList hr {
-  width: 12rem;
+  width: 10rem;
+  height: 1px;
 }
 
-app-post {
-  display: none;
+/*----------*/
+
+input, h1 {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
+/*@media only screen and (max-width: 1200px) {
+  .rightColumn {
+    display: none;
+  }
+}
+*/

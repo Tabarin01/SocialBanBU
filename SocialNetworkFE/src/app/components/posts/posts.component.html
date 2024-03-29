@@ -1,22 +1,37 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <img mat-card-avatar [src]="post.user.imgProfile" alt="Icon" />
-    <mat-card-title>{{ post.user.fullName }}</mat-card-title>
-    <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
-  </mat-card-header>
-  <img
-    class="h-[400px] w-[400px] object-cover object-center"
-    mat-card-image
-    [src]="post.image"
-    alt="Photo of pizza"
-  />
-  <mat-card-content>
-    <p>
-      {{ post.description }}
-    </p>
-    <p>
-      {{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="flex justify-between"> </mat-card-actions>
-</mat-card>
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <img mat-card-avatar [src]="post.user.imgProfile" alt="Icon" />
+      <mat-card-title>{{ post.user.fullName }}</mat-card-title>
+      <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="" mat-card-image [src]="post.image" alt="Photo of pizza" />
+    <mat-card-content>
+      <p>
+        {{ post.description }}
+      </p>
+      <p>
+        {{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}
+      </p>
+    </mat-card-content>
+    <div>
+      <mat-icon>favorite</mat-icon>
+      <mat-icon>comment_alert</mat-icon>
+    </div>
+    <div class="comment-container" *ngFor="let comment of post.comments">
+      <div>
+        <div style="display: flex">
+          <div>
+            <img mat-card-avatar [src]="comment.user.imgProfile" alt="Icon" />
+          </div>
+          <div>
+            <span>{{ comment.user.fullName }}</span>
+          </div>
+        </div>
+        <div class="comment-text">
+          <span>{{ comment.text }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

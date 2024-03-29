@@ -1,14 +1,14 @@
-<header>
+<!--<header>
   <img class="logo" src="../../../assets/img/logo.png" />
 
   <div (click)="handleLogout()" class="logout">
     <img src="../../../assets/img/ExitIco.png" alt="Icona cazzi" />
   </div>
   <div class="searchInput">
-    <!-- <img src="../../assets/img/SearchIco.png" /><input
+    <img src="../../assets/img/SearchIco.png" /><input
       type="text"
       placeholder="Search SocialBan"
-    /> -->
+    /> 
   </div>
 </header>
 
@@ -37,4 +37,43 @@
       <hr />
     </ul>
   </div>
+</div>-->
+
+
+<div class="hero">
+  <div class="leftColumn">
+    <div class="sticky">
+      <app-nav />
+    </div>
+  </div>
+
+  <div class="centralColumn">
+    <div class="postForm">
+      <input type="text" placeholder="What's Happening?" disabled/>
+    </div>
+    <hr />
+    <div class="postFeed">
+      <div *ngFor="let item of posts">
+        <app-posts [post]="item" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="rightColumn">
+    <div class="sticky">
+      <div class="inputSearch">
+        <input type="text" placeholder="Search SocialBan"/>
+      </div>
+      <div class="userList">
+        <h1>Current users</h1>
+        <div *ngFor="let user of users">
+          <ul>
+            <li>
+              <img [src]="user.imgProfile" /><a>{{ user.fullName }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
 </div>

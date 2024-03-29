@@ -33,7 +33,5 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  handleLogout() {
-    this.authService.logout();
-  }
+  
 }

@@ -6,4 +6,3 @@ import { Component } from "@angular/core";
   styleUrls: ["./form-post.component.css"],
 })
 export class FormPostsComponent {}
- 
