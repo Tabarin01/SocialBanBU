@@ -8,7 +8,7 @@
     <img src="../../assets/img/SearchIco.png" /><input
       type="text"
       placeholder="Search SocialBan"
-    /> 
+    />
   </div>
 </header>
 
@@ -21,7 +21,7 @@
     </div>
     <hr />
     <div class="feedPost">
-      <div *ngFor="let item of posts.reverse()">
+      <div *ngFor="let item of posts">
         <app-posts [post]="item" />
       </div>
     </div>
@@ -39,7 +39,6 @@
   </div>
 </div>-->
 
-
 <div class="hero">
   <div class="leftColumn">
     <div class="sticky">
@@ -49,13 +48,44 @@
 
   <div class="centralColumn">
     <div class="postForm">
-      <input type="text" placeholder="What's Happening?" disabled/>
+      <input (click)="openDialogFormPost()" type="text" placeholder="What's Happening?"/>
     </div>
     <hr />
-    <div class="postFeed">
-      <div *ngFor="let item of posts.reverse()">
-        <app-posts [post]="item" />
-      </div>
+  <div class="postFeed">
+    <div *ngFor="let item of posts.slice().reverse()">
+      <app-posts [post]="item" />
+    </div>
+      <!-- <div class="post">
+        <div class="userPfp">
+          <img src="../../../assets/img/pfp.png">
+        </div>
+        <div id="postTopContent" class="postComponent">
+          <h2>Piermenti Sfracellozzi</h2>
+          <a>Questa è una descrizione del post Grissinbon Grissinbon Grissinbon oggi porta in tavola una novità due a due confezionate son le fette biscottate</a>
+        </div>
+        <div class="postImage">
+          <img src="https://shorturl.at/dijkT">
+        </div>
+        <div id="likesCommentsRow" class="postComponent">
+          <div id="likes">
+            <img src="../../../assets/img/LikeIco.png">
+            <a>123</a>
+          </div>
+          <div id="comments">
+            <img src="../../../assets/img/CommentIco.png">
+            <a>123</a>
+          </div>
+        </div>
+        <div id="addComment" class="postComponent">
+          <input type="text" id="comment" name="comment" placeholder="Aggiungi un commento...">
+        </div>
+      </div> 
+      <hr> -->
+      
+  
+
+    
+
     </div>
   </div>
   
@@ -68,7 +98,7 @@
         <h1>Current users</h1>
         <div *ngFor="let user of users">
           <ul>
-            <li class="profile-icon">
+            <li>
               <img [src]="user.imgProfile" /><a>{{ user.fullName }}</a>
             </li>
           </ul>

@@ -181,17 +181,6 @@ input, h1, img, #likesCommentsRow a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .post {
   background-color: #11a2e000;
   width: 34.74rem;
@@ -239,6 +228,13 @@ input, h1, img, #likesCommentsRow a {
   margin-right: 1rem;
 }
 
+.postComponent .postInteraction{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+
 #likesCommentsRow {
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
@@ -267,4 +263,62 @@ input, h1, img, #likesCommentsRow a {
   border: none;
   width: 100%;
   margin-top: 0.5rem;
+}
+
+.imageProfile{
+  background: #fff;
+  object-fit: cover;
+  
+}
+
+.postInteraction{
+  display: flex;
+}
+
+
+
+
+/*Contenitore di commenti*/
+
+/* Comment Section */
+.comments-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.userImage img {
+  width: 2.5rem; /* Adjust based on your design */
+  height: 2.5rem; /* Make the image a circle if the images are square */
+  border-radius: 50%; /* This will create a circular profile picture */
+  margin-right: 0.5rem; /* Space between the image and the username */
+}
+
+.username {
+  font-size: 90%; /* Adjust the size to match your design */
+  font-weight: bold; /* Make the username stand out */
+  color: #fff; /* Username color */
+}
+
+.comments-post {
+  margin-left: 3rem; /* Aligns text with the username */
+  color: #ccc; /* Comment text color for readability */
+  font-size: 85%; /* Slightly smaller than the username for hierarchy */
+}
+
+.comments-post span {
+  display: block; /* Ensures comments are block-level elements */
+  margin-top: 0.2rem; /* Space between username and comment text */
+}
+
+.comments-container + div {
+  margin-left: 3rem; /* Aligns the date with the comment text */
+  font-size: 80%; /* Smaller font size for the date */
+  color: #999; /* Less emphasis on the date */
+  margin-bottom: 0.5rem; /* Space after the date before the next comment */
+}
+
+.comments-container + div span {
+  display: block; /* Block-level element */
+  margin-top: 0.1rem; /* Small gap after the comment for the date */
 }

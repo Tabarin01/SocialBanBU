@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable, resolveForwardRef } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, catchError, tap, throwError } from "rxjs";
 
 @Injectable({
@@ -84,14 +84,19 @@ export class PostService {
       );
   }
 
-  insertComment(postData: any) {
+
+  likePost(id:any): Observable<any>{
     const headers = this.getHeaders();
-    return this.http.put(
-      `${this.baseUrl}/api/post/${postData.id}/comment`,
-      postData,
-      {
-        headers,
-      }
-    );
+    console.log("Like post numero " + id)
+    return this.http.put(`${this.baseUrl}/api/post/${id}/like`, {}, {headers}).pipe(
+      tap((updatedPost: any)=>{
+        const currentState = this.postSubject.value;
+        console.log("Current State ",currentState)
+        const updatedPosts = currentState.posts.map((item: any) =>
+          item.id === updatedPost.id ? updatedPost : item
+        );
+        this.postSubject.next({ ...currentState, posts: updatedPosts });
+      })
+    )
   }
 }

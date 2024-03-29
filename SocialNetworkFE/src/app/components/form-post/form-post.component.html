@@ -1,32 +1,19 @@
-<div class="container">
+<mat-card class="container">
   <div class="wrapper">
     <section class="post">
       <header>Create Post</header>
-      <form action="#">
         <div class="content">
-          <img src="icons/logo.png" alt="logo" />
+          <img mat-card-avatar [src]="userAuth.imgProfile" alt="Icon" />
           <div class="details">
-            <p>SocialBan</p>
+            <mat-card-title>{{ userAuth.fullName }}</mat-card-title>
           </div>
         </div>
-        <textarea
-          placeholder="What's on your mind"
-          spellcheck="false"
-          required
-        ></textarea>
-        <div class="options">
-          <p>Add to Your Post</p>
-          <ul class="list">
-            <li>
-              <i class="fa-regular fa-image"></i>
-            </li>
-            <li class="emoji-selector" id="emojiSelector">
-              <i class="fa-regular fa-face-smile"></i>
-            </li>
-          </ul>
+        <input type="text" placeholder="url image ..." [(ngModel)]="url">
+        <div >
+          <img [src]="url" style="height: 100px; width:100px" alt="">
         </div>
+        <input type="textarea" placeholder="What's on your mind?" spellcheck="false" required/>
         <button>Post</button>
-      </form>
     </section>
   </div>
-</div>
+</mat-card>

@@ -16,11 +16,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
 import { FormPostsComponent } from "./components/form-post/form-post.component";
 import { NavComponent } from "./components/nav/nav.component";
-import { PostsComponent } from "./components/posts/posts.component";
+import { PostsComponent } from "./components/post/post.component";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({

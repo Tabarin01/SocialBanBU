@@ -6,8 +6,8 @@ import { PostService } from "src/app/services/Post/post.service";
 
 @Component({
   selector: "app-posts",
-  templateUrl: "./posts.component.html",
-  styleUrls: ["./posts.component.css"],
+  templateUrl: "./post.component.html",
+  styleUrls: ["./post.component.css"],
 })
 export class PostsComponent {
   constructor(
@@ -25,6 +25,13 @@ export class PostsComponent {
   pushComment(id: any) {
     console.log(id);
     this.postService.createComment(id, this.comment).subscribe({
+      next: (data) => console.log("update", data),
+    });
+  }
+
+  pushLikes(id: any) {
+    console.log(id)
+    this.postService.likePost(id).subscribe({
       next: (data) => console.log("update", data),
     });
   }
@@ -49,4 +56,10 @@ export class PostsComponent {
       }
     });
   }
+
+
+ 
+
+
+
 }

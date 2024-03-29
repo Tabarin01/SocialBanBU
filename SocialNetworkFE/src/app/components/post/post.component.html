@@ -1,0 +1,57 @@
+<div class="post">
+  <div class="userPfp" >
+    <img  [src]="post.user.imgProfile" alt="userIcon" class="imageProfile">
+  </div>
+  <div id="postTopContent" class="postComponent">
+    <div>
+      <h2>{{post.title}}</h2>
+      <a>{{post.description}}</a>
+    </div>
+  </div>
+  <div class="postImage">
+    <img [src]="post.image">
+  </div>
+  <div id="likesCommentsRow" class="postComponent">
+    <div class="createdDate">
+      <a>{{post.createdAt | date : "HH:mm, dd MMMM yyyy"}}</a>
+    </div>
+    <div class="postInteraction">
+      <div id="likes" (click)="pushLikes(post.id)">
+        <img src="../../../assets/img/LikeIco.png">
+        <a>{{post.likes.length}}</a>
+      </div>
+      <div id="comments">
+        <label for="{{post.id}}">
+        <img src="../../../assets/img/CommentIco.png">
+      </label>
+        <a>{{post.comments.length}}</a>
+      </div> 
+    </div>
+  </div>
+  <div *ngFor="let comment of post.comments">
+
+    <hr> 
+      <div class="comments-container">
+        <div class="userPfp">
+          <img class="imageProfile" [src]="comment.user.imgProfile" alt="Icon" />
+        </div>
+        <div class="username">
+          <span>{{ comment.user.fullName }}</span>
+        </div>
+      </div>
+      <div class="postComponent">
+        <span>{{ comment.text }}</span>
+      </div>
+      <div>
+        <span>
+          {{ comment.createdAt | date : "HH:mm, dd MMMM yyyy" }}
+        </span>
+      </div>
+  </div>
+  <div id="addComment" class="postComponent" >
+    <input type="text"
+    id="{{ post.id }}"
+    placeholder="Aggiungi un commento..."
+    [(ngModel)]="comment.text" name="comment">
+    <button (click)="pushComment(post.id)">Pubblica</button>
+  </div>
