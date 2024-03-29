@@ -13,13 +13,13 @@
       <a>aaaaaaaaaaaaaaaaaa</a>
     </div>
   </div>
-  <div class="navContent">
-    <img src="../../assets/img/UserIco.png" /><a href="#">Profile</a>
+  <div class="navContent" (click)="openDialogProfile()">  
+    <img src="../../assets/img/UserIco.png" /><a>Profile</a>
   </div>
   <div class="navButton">
     <a href="#">Post</a>
   </div>
-  <div class="bottomContent" (click)="openDialog()">
+  <div class="bottomContent" (click)="openDialogLogout()">
     <img src="../../assets/img/ExitIco.png" /><a>Log out</a>
   </div>
 </nav>
