@@ -53,7 +53,7 @@
     </div>
     <hr />
     <div class="postFeed">
-      <div *ngFor="let item of posts">
+      <div *ngFor="let item of posts.reverse()">
         <app-posts [post]="item" />
       </div>
     </div>
@@ -68,7 +68,7 @@
         <h1>Current users</h1>
         <div *ngFor="let user of users">
           <ul>
-            <li>
+            <li class="profile-icon">
               <img [src]="user.imgProfile" /><a>{{ user.fullName }}</a>
             </li>
           </ul>

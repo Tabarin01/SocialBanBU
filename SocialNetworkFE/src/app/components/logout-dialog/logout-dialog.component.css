@@ -1,0 +1,34 @@
+.avviso {
+  background-color: rgba(
+    20,
+    35,
+    41,
+    0.8
+  ); /* Cambiato il colore di sfondo con maggiore opacità */
+  color: #f1f1f1; /* Cambiato il colore del testo */
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 500px;
+  margin: auto;
+  text-align: center; 
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5); /* Aggiunta un'ombra per lo sfondo sfocato e opaco */
+}
+
+.avviso p {
+  margin-bottom: 15px;
+}
+
+.avviso button {
+  background-color: #0b6389;
+  color: #f1f1f1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.avviso button:hover {
+  background-color: #118bc0;
+}

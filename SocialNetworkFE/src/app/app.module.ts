@@ -3,23 +3,25 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 
 //Material
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, provideHttpClient } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
-import { MatIconModule } from "@angular/material/icon";
-import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 //Componenti
-import { AppComponent } from "./app.component";
-import { LoginComponent } from "./pages/login/login.component";
-import { NavComponent } from "./components/nav/nav.component";
-import { HomePageComponent } from "./pages/home-page/home-page.component";
-import { PostsComponent } from "./components/posts/posts.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppComponent } from "./app.component";
 import { FormPostsComponent } from "./components/form-post/form-post.component";
-import { ProfileComponent } from './components/profile/profile.component';
+import { NavComponent } from "./components/nav/nav.component";
+import { PostsComponent } from "./components/posts/posts.component";
+import { HomePageComponent } from "./pages/home-page/home-page.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomePageComponent,
     FormPostsComponent,
     PostsComponent,
-    ProfileComponent,
+    UserProfileComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

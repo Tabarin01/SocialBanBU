@@ -1,15 +1,25 @@
 import { Component } from "@angular/core";
-import { AuthService } from "src/app/services/Auth/auth.service";
+import { MatDialog } from "@angular/material/dialog";
+import { UserProfileComponent } from "src/app/pages/user-profile/user-profile.component";
+import { LogoutDialogComponent } from "../logout-dialog/logout-dialog.component";
 
 @Component({
   selector: "app-nav",
   templateUrl: "./nav.component.html",
   styleUrls: ["./nav.component.css"],
 })
+  
 export class NavComponent {
-  constructor(private authService: AuthService) {}
 
-  handleLogout() {
-    this.authService.logout();
+  constructor(public dialog: MatDialog) {}
+
+  openDialogLogout(): void {
+    const dialogRef = this.dialog.open(LogoutDialogComponent, {
+    });
+  }
+
+  openDialogProfile(): void {
+    const dialogRef = this.dialog.open(UserProfileComponent, {
+    });
   }
 }

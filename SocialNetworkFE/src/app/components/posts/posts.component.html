@@ -1,11 +1,14 @@
 <div>
   <mat-card class="example-card">
     <mat-card-header>
-      <img mat-card-avatar [src]="post.user.imgProfile" alt="Icon" />
+      <img mat-card-avatar [src]="post.user.imgProfile" alt="Icon"/>
       <mat-card-title>{{ post.user.fullName }}</mat-card-title>
       <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
+      
+      <mat-icon (click)="deletePost()" >delete</mat-icon>
+      
     </mat-card-header>
-    <img class="" mat-card-image [src]="post.image" alt="Photo of pizza" />
+    <img mat-card-image [src]="post.image" alt="Photo of pizza" />
     <mat-card-content>
       <p>
         {{ post.description }}
@@ -16,7 +19,9 @@
     </mat-card-content>
     <div>
       <mat-icon>favorite</mat-icon>
-      <mat-icon>comment_alert</mat-icon>
+      <label for="{{ post.id }}">
+        <mat-icon>comment_alert</mat-icon>
+      </label>
     </div>
     <div class="comment-container" *ngFor="let comment of post.comments">
       <div>
@@ -31,7 +36,22 @@
         <div class="comment-text">
           <span>{{ comment.text }}</span>
         </div>
+        <div>
+          <span>
+            {{ comment.createdAt | date : "HH:mm, dd MMMM yyyy" }}
+          </span>
+        </div>
       </div>
+    </div>
+    <div class="container-comment-form">
+      <input
+        class="comment-form"
+        type="text"
+        id="{{ post.id }}"
+        placeholder="Aggiungi un commento..."
+        [(ngModel)]="comment.text"
+      />
+      <button (click)="pushComment(post.id)">Pubblica</button>
     </div>
   </mat-card>
 </div>
