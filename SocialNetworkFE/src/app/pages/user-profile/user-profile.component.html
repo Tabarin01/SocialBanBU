@@ -1,6 +1,6 @@
 <body>
 
-<div class="container">
+<div class="container bg-cyan-950">
     <div class="profile">
       <div class="profile-header">
         <img class="profile-picture" [src]="userAuth.imgProfile" alt="Profile Picture">
@@ -11,8 +11,12 @@
       </div>
       <div class="profile-content">
         <h2 class="section-title">Posts</h2>
-        <div *ngFor="let post of posts.reverse()">
-          <a href="ad">sdasdad</a>NON SI PRENDE GLI ATTRIBUTI DEL POST
+        <div *ngFor="let post of posts  ">
+          <div *ngIf="post.user.id == userAuth.id">
+            <div >
+              <img [src]="post.image" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,16 @@ import { UserService } from 'src/app/services/Users/user.service';
 })
 export class UserProfileComponent implements OnInit{
 
-  posts = []
+  posts = [
+    {
+      id:"",
+      title:"",
+      user : {
+        id: ""
+      },
+      image : ""
+    }
+  ]
   users : any;
 
   constructor(public authService:AuthService, public postService:PostService, public userService : UserService){
@@ -36,6 +45,11 @@ export class UserProfileComponent implements OnInit{
       // Gestisci i post ricevuti dal servizio
       this.users = users;
     });
+  }
+
+  console(post: any){
+    console.log("valore postos" ,post.value);
+  
   }
 
 
