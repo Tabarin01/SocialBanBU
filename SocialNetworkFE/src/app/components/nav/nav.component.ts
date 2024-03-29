@@ -8,6 +8,7 @@ import { LogoutDialogComponent } from "../logout-dialog/logout-dialog.component"
   templateUrl: "./nav.component.html",
   styleUrls: ["./nav.component.css"],
 })
+  
 export class NavComponent {
 
   constructor(public dialog: MatDialog) {}

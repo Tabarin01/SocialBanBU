@@ -10,27 +10,33 @@ import { UserService } from 'src/app/services/Users/user.service';
 })
 export class UserProfileComponent implements OnInit{
 
-  user: any;
   posts = []
+  users : any;
 
-  constructor(
-    private authService: AuthService,
-    private postService: PostService,
-    private userService: UserService
-  ) {}
+  constructor(public authService:AuthService, public postService:PostService, public userService : UserService){
 
-  ngOnInit() {
-    console.log("Hello");
-    this.authService.getUserProfile().subscribe((state) => {
-      this.user = state.user;
+  }
+
+  userAuth:any;
+
+  ngOnInit(): void {
+    this.authService.getUserProfile().subscribe({
+      next: (data) => this.userAuth = data,
+      error: (error) => console.log('error', error),
     });
+    
+
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
       this.posts = state.posts;
+      console.log(this.posts);
+    });
+
+    this.userService.getAllUsers().subscribe((users) => {
+      // Gestisci i post ricevuti dal servizio
+      this.users = users;
     });
   }
-
-
 
 
 
