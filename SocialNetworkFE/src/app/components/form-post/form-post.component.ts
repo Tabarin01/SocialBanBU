@@ -8,9 +8,16 @@ import { PostService } from "src/app/services/Post/post.service";
   styleUrls: ["./form-post.component.css"],
 })
 export class FormPostsComponent implements OnInit{
-
-  posts = [];
+  
   userAuth: any;
+
+
+  postItem: any ={
+    title:"",
+    image:"",
+    description:""
+  }
+
 
   constructor(
     private authService: AuthService,
@@ -24,13 +31,18 @@ export class FormPostsComponent implements OnInit{
       next: (data) => this.userAuth = data,
       error: (error) => console.log('error', error),
     });
-    
-
-    this.postService.getPosts().subscribe();
-    this.postService.postSubject.subscribe((state) => {
-      this.posts = state.posts;
-      console.log(this.posts);
-    });
-
   }
+
+  onSubmit(){
+    console.log("values", this.postItem)
+    this.postService.createPost(this.postItem).subscribe(
+      {
+        next:data=> console.log("created post", data),
+        error : error => console.log("error", error)
+      }
+    )
+  }
+
+
+
 }

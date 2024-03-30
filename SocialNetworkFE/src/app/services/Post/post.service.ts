@@ -39,7 +39,7 @@ export class PostService {
 
   createPost(post: any): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.post(`${this.baseUrl}/api/post`, { headers }).pipe(
+    return this.http.post(`${this.baseUrl}/api/post`,post, { headers }).pipe(
       tap((newPost) => {
         const currentState = this.postSubject.value;
         this.postSubject.next({

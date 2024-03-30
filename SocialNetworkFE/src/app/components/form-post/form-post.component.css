@@ -1,72 +1,77 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
-.container{
-  width: 527px;
-  height: 600px;
-  overflow: hidden;
-  background-color: #ffffff;
+
+.post {
+  width: 500px;
+  background-color: #fff;
   border-radius: 10px;
-  transition: height 0.2s ease;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
-.container.active{
-  height: 590px;
+
+.post header {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-.container .post{
-  transition: margin-left 0.18s ease;
+
+.content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
-.container.active .post{
-  margin-left: -500px;
+
+.content img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
-.post header{
-  font-size: 22px;
-  font-weight: 600;
-  padding: 17px 0;
-  text-align: center;
-  border-bottom: 1px solid #bfbfbf;
+
+.details {
+  display: flex;
+  flex-direction: column;
 }
-.post form{
-  margin: 20px 25px;
+
+input[type="text"],
+input[type="textarea"] {
+  width: calc(100% - 20px); /* Take up remaining space */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
-form :where(textarea, button){
-  width: 100%;
-  outline: none;
+
+input[type="textarea"] {
+  height: 100px; /* Set desired height */
+  resize: none; /* Prevent resizing */
+}
+
+button {
+  background-color: #4267B2;
+  color: white;
+  padding: 10px 20px;
   border: none;
-}
-form textarea{
-  resize: none;
-  font-size: 18px;
-  margin-top: 30px;
-  min-height: 100px;
-}
-form textarea::placeholder{
-  color: #858585;
-}
-form textarea:focus::placeholder{
-  color: #b3b3b3;
-}
-form button{
-  align-self: flex-end;
-  height: 53px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
+  border-radius: 4px;
   cursor: pointer;
-  color: #BCC0C4;
-  cursor: no-drop;
-  border-radius: 7px;
-  background: #e2e5e9;
-  transition: all 0.3s ease;
 }
-form textarea:valid ~ button{
-  color: #fff;
-  cursor: pointer;
-  background: #4599FF;
+
+.imgContainer {
+  height: 30vh; /* Imposta l'altezza automatica */
+  width: 100%;
 }
-form textarea:valid ~ button:hover{
-  background: #c2c2c2;
+
+.imgContainer img {
+  width: 100%;
+  max-height: 100%;
+}
+
+
+
+button:hover {
+  background-color: #385898;
 }
