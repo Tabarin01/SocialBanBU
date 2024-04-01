@@ -24,6 +24,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 import { ProfilesComponent } from './pages/profiles/profiles.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProfilesComponent } from './pages/profiles/profiles.component';
     ShowPostsComponent,
     VoidComponentComponent,
     ProfilesComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,

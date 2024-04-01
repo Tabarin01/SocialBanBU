@@ -12,6 +12,11 @@
         routerLink="/deletePost/{{ post.id }}"
         >delete</mat-icon
       >
+      <mat-icon
+        [style]="isOwner ? 'display: flex' : 'display:none'"
+        routerLink="/editPost/{{ post.id }}"
+        >edit</mat-icon
+      >
     </div>
   </div>
   <div class="postImage">

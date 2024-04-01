@@ -1,0 +1,32 @@
+<div>
+  <header>Edit Post {{ postItem.title }}</header>
+  <form>
+    <input
+      name="title"
+      type="text"
+      placeholder="title.."
+      value="postItem.title"
+      [(ngModel)]="postItem.title"
+    />
+    <input
+      name="image"
+      type="text"
+      placeholder="url image ..."
+      value="postItem.image"
+      [(ngModel)]="postItem.image"
+    />
+    <div class="imgContainer">
+      <img [src]="postItem.image" alt="" />
+    </div>
+    <input
+      name="description"
+      type="textarea"
+      placeholder="What's on your mind?"
+      spellcheck="false"
+      value="postItem.description"
+      [(ngModel)]="postItem.description"
+      required
+    />
+    <button (click)="onEdit()" routerLink="/posts">Edit Post</button>
+  </form>
+</div>

@@ -1,19 +1,28 @@
-
-  <div class="wrapper">
-    <section class="post">
-      <header>Create Post</header>
-        <div class="content">
-          <img mat-card-avatar [src]="userAuth.imgProfile" alt="Icon" />
-          <div class="details">
-            <mat-card-title>{{ userAuth.fullName }}</mat-card-title>
-          </div>
-        </div>
-        <input type="text" placeholder="title.." [(ngModel)]="postItem.title">
-        <input type="text" placeholder="url image ..." [(ngModel)]="postItem.image">
-        <div class="imgContainer">
-          <img [src]="postItem.image"  alt="">
-        </div>
-        <input type="textarea" placeholder="What's on your mind?" spellcheck="false" [(ngModel)]="postItem.description" required/>
-        <button (click)="onSubmit()" routerLink="/posts">Post</button>
-    </section>
-  </div>
+<div class="wrapper">
+  <section class="post">
+    <header>Create Post</header>
+    <div class="content">
+      <img mat-card-avatar [src]="userAuth.imgProfile" alt="Icon" />
+      <div class="details">
+        <mat-card-title>{{ userAuth.fullName }}</mat-card-title>
+      </div>
+    </div>
+    <input type="text" placeholder="title.." [(ngModel)]="postItem.title" />
+    <input
+      type="text"
+      placeholder="url image ..."
+      [(ngModel)]="postItem.image"
+    />
+    <div class="imgContainer">
+      <img [src]="postItem.image" alt="" />
+    </div>
+    <input
+      type="textarea"
+      placeholder="What's on your mind?"
+      spellcheck="false"
+      [(ngModel)]="postItem.description"
+      required
+    />
+    <button (click)="onSubmit()" routerLink="/posts">Post</button>
+  </section>
+</div>

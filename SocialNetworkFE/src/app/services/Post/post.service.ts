@@ -39,7 +39,7 @@ export class PostService {
 
   createPost(post: any): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.post(`${this.baseUrl}/api/post`,post, { headers }).pipe(
+    return this.http.post(`${this.baseUrl}/api/post`, post, { headers }).pipe(
       tap((newPost) => {
         const currentState = this.postSubject.value;
         this.postSubject.next({
@@ -84,19 +84,35 @@ export class PostService {
       );
   }
 
-
-  likePost(id:any): Observable<any>{
+  likePost(id: any): Observable<any> {
     const headers = this.getHeaders();
-    console.log("Like post numero " + id)
-    return this.http.put(`${this.baseUrl}/api/post/${id}/like`, {}, {headers}).pipe(
-      tap((updatedPost: any)=>{
-        const currentState = this.postSubject.value;
-        console.log("Current State ",currentState)
-        const updatedPosts = currentState.posts.map((item: any) =>
-          item.id === updatedPost.id ? updatedPost : item
-        );
-        this.postSubject.next({ ...currentState, posts: updatedPosts });
-      })
-    )
+    console.log("Like post numero " + id);
+    return this.http
+      .put(`${this.baseUrl}/api/post/${id}/like`, {}, { headers })
+      .pipe(
+        tap((updatedPost: any) => {
+          const currentState = this.postSubject.value;
+          console.log("Current State ", currentState);
+          const updatedPosts = currentState.posts.map((item: any) =>
+            item.id === updatedPost.id ? updatedPost : item
+          );
+          this.postSubject.next({ ...currentState, posts: updatedPosts });
+        })
+      );
+  }
+
+  updatePost(postData: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http
+      .put(`${this.baseUrl}/api/post/${postData.id}`, postData, { headers })
+      .pipe(
+        tap((updatedPost: any) => {
+          const currentState = this.postSubject.value;
+          const updatedPosts = currentState.posts.map((item: any) =>
+            item.id === updatedPost.id ? updatedPost : item
+          );
+          this.postSubject.next({ ...currentState, posts: updatedPosts });
+        })
+      );
   }
 }

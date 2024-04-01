@@ -36,18 +36,5 @@ export class FormPostsComponent implements OnInit {
       next: (data) => console.log("created post", data),
       error: (error) => console.log("error", error),
     });
-    location.reload();
   }
-
-  // reload(){
-  //   window.location.reload()
-  // }
-
-  // closeDialog(): void {
-  //   this.dialogRef.close();
-
-  //   setTimeout(() => {
-  //     this.reload();
-  //   }, 100);
-  // }
 }

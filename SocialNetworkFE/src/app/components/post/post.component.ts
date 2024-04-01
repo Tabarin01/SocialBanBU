@@ -24,7 +24,10 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserProfile().subscribe((data) => {
       this.userAuth = data;
-      this.isOwner = this.userAuth.id == this.post.user.id ? true : false;
+      this.isOwner =
+        this.userAuth.id == this.post.user.id || this.userAuth.role == "ADMIN"
+          ? true
+          : false;
     });
   }
   comment = {
