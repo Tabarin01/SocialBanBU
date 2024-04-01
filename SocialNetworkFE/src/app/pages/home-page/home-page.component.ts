@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { FormPostsComponent } from "src/app/components/form-post/form-post.component";
 import { AuthService } from "src/app/services/Auth/auth.service";
@@ -22,7 +22,6 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("Hello");
     this.authService.getUserProfile();
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {

@@ -31,14 +31,14 @@ export class UserProfileComponent implements OnInit{
   ngOnInit(): void {
     this.authService.getUserProfile().subscribe({
       next: (data) => this.userAuth = data,
-      error: (error) => console.log('error', error),
+      // error: (error) => console.log('error', error),
     });
     
 
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
       this.posts = state.posts;
-      console.log(this.posts);
+      // console.log(this.posts);
     });
 
     this.userService.getAllUsers().subscribe((users) => {
@@ -48,7 +48,7 @@ export class UserProfileComponent implements OnInit{
   }
 
   console(post: any){
-    console.log("valore postos" ,post.value);
+    // console.log("valore postos" ,post.value);
   
   }
 

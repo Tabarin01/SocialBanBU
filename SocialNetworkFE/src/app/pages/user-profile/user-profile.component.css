@@ -38,7 +38,8 @@ body {
 }
 
 .profile-details {
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile-name {
@@ -75,7 +76,7 @@ body {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .profile-picture {
     margin-bottom: 10px;
   }

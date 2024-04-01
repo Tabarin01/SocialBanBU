@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-confirmation-dialog',
+  selector: "app-confirmation-dialog",
   templateUrl: "./confirmation-dialog.component.html",
   styleUrls: ["./confirmation-dialog.component.css"],
 })
-export class ConfirmationDialogComponent{
-  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>) {}
+export class ConfirmationDialogComponent {
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
+    private route: ActivatedRoute
+  ) {}
 
-  reload(){
-    window.location.reload()
+  reload() {
+    window.location.reload();
   }
 
   confirmDelete(): void {
     this.dialogRef.close(true);
-    
-    setTimeout(() => {
-      this.reload();
-    }, 100);
+    this.route.snapshot.parent
   }
-  
 }

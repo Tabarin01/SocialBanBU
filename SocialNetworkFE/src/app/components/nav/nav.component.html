@@ -2,8 +2,8 @@
   <div class="logo">
     <img src="../../../assets/img/logoalt.png" />
   </div>
-  <div class="navContent">
-    <img src="../../assets/img/HomeIco.png" /><a href="#">Home</a>
+  <div class="navContent" routerLink="posts">
+    <img src="../../assets/img/HomeIco.png" /><a>Home</a>
   </div>
   <div id="notifications" class="navContent">
     <img src="../../assets/img/NotificationIco.png" /><a href="#"
@@ -13,8 +13,9 @@
       <a>aaaaaaaaaaaaaaaaaa</a>
     </div>
   </div>
-  <div class="navContent" (click)="openDialogProfile()">  
-    <img src="../../assets/img/UserIco.png" /><a>Profile</a>
+  <div class="navContent" routerLink="profile">
+    <img src="../../assets/img/UserIco.png" />
+    <a>Profile</a>
   </div>
   <div class="navButton">
     <a href="#">Post</a>

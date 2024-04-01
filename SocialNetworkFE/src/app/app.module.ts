@@ -21,6 +21,8 @@ import { ConfirmationDialogComponent } from "./components/confirmation-dialog/co
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
+import { ShowPostsComponent } from './components/show-posts/show-posts.component';
+import { VoidComponentComponent } from './void/void.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
     PostsComponent,
     UserProfileComponent,
     ConfirmationDialogComponent,
+    ShowPostsComponent,
+    VoidComponentComponent,
   ],
   imports: [
     BrowserModule,

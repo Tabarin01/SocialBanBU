@@ -1,25 +1,32 @@
 <body>
-
-<div class="container bg-cyan-950">
+  <div class="container bg-cyan-950">
     <div class="profile">
       <div class="profile-header">
-        <img class="profile-picture" [src]="userAuth.imgProfile" alt="Profile Picture">
+        <img
+          class="profile-picture"
+          [src]="userAuth.imgProfile"
+          alt="Profile Picture"
+        />
         <div class="profile-details">
-          <h1 class="profile-name">{{userAuth.fullName}}</h1>
-          <p class="profile-bio"></p>
+          <div>
+            <h1 class="profile-name">{{ userAuth.fullName }}</h1>
+            <h2>{{ userAuth.email }}</h2>
+            <h3>{{ userAuth.dob }}</h3>
+            <h3>{{ userAuth.role }}</h3>
+          </div>
+          <mat-icon>edit</mat-icon>
         </div>
       </div>
       <div class="profile-content">
         <h2 class="section-title">Posts</h2>
-        <div *ngFor="let post of posts  ">
-          <div *ngIf="post.user.id == userAuth.id">
-            <div >
-              <img [src]="post.image" alt="">
+        <div *ngFor="let item of posts.slice().reverse()">
+          <div *ngIf="item.user.id == userAuth.id">
+            <div>
+              <app-posts [post]="item" />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-    
 </body>

@@ -1,6 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute, Route } from "@angular/router";
 import { ConfirmationDialogComponent } from "src/app/components/confirmation-dialog/confirmation-dialog.component";
+import { AuthService } from "src/app/services/Auth/auth.service";
 import { PostService } from "src/app/services/Post/post.service";
 
 @Component({
@@ -8,11 +10,24 @@ import { PostService } from "src/app/services/Post/post.service";
   templateUrl: "./post.component.html",
   styleUrls: ["./post.component.css"],
 })
-export class PostsComponent {
-  constructor(private postService: PostService, private dialog: MatDialog) {}
+export class PostsComponent implements OnInit {
+  constructor(
+    private postService: PostService,
+    private dialog: MatDialog,
+    private userService: AuthService
+  ) {}
+
+  userAuth: any;
+  isOwner!: boolean;
 
   @Input() post: any;
 
+  ngOnInit(): void {
+    this.userService.getUserProfile().subscribe((data) => {
+      this.userAuth = data;
+      this.isOwner = this.userAuth.id == this.post.user.id ? true : false;
+    });
+  }
   comment = {
     text: "",
     createdAt: new Date(),
@@ -21,14 +36,14 @@ export class PostsComponent {
   pushComment(id: any) {
     console.log(id);
     this.postService.createComment(id, this.comment).subscribe({
-      next: (data) => console.log("update", data),
+      // next: (data) => console.log("update", data),
     });
   }
 
   pushLikes(id: any) {
     console.log(id);
     this.postService.likePost(id).subscribe({
-      next: (data) => console.log("update", data),
+      // next: (data) => console.log("update", data),
     });
   }
 

@@ -1,0 +1,5 @@
+<div class="postFeed">
+  <div *ngFor="let item of posts.slice().reverse()">
+    <app-posts [post]="item"/>
+  </div>
+</div>

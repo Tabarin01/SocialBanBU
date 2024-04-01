@@ -1,44 +1,4 @@
-<!--<header>
-  <img class="logo" src="../../../assets/img/logo.png" />
-
-  <div (click)="handleLogout()" class="logout">
-    <img src="../../../assets/img/ExitIco.png" alt="Icona cazzi" />
-  </div>
-  <div class="searchInput">
-    <img src="../../assets/img/SearchIco.png" /><input
-      type="text"
-      placeholder="Search SocialBan"
-    />
-  </div>
-</header>
-
-<div class="hero">
-  <app-nav />
-
-  <div class="feed">
-    <div class="feedInput">
-      <input type="text" placeholder="What's Happening?" />
-    </div>
-    <hr />
-    <div class="feedPost">
-      <div *ngFor="let item of posts">
-        <app-posts [post]="item" />
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="userList">
-  <div *ngFor="let user of users">
-    <ul>
-      <li>
-        <img [src]="user.imgProfile" /><a>{{ user.fullName }}</a>
-      </li>
-      <hr />
-    </ul>
-  </div>
-</div>-->
-
+<!-- Left Column -->
 <div class="hero">
   <div class="leftColumn">
     <div class="sticky">
@@ -46,53 +6,25 @@
     </div>
   </div>
 
+  <!-- Posts column -->
   <div class="centralColumn">
     <div class="postForm">
-      <input (click)="openDialogFormPost()" type="text" placeholder="What's Happening?"/>
+      <input
+        type="text"
+        placeholder="What's Happening?"
+        routerLink="createPost"
+      />
     </div>
     <hr />
-  <div class="postFeed">
-    <div *ngFor="let item of posts.slice().reverse()">
-      <app-posts [post]="item" />
-    </div>
-      <!-- <div class="post">
-        <div class="userPfp">
-          <img src="../../../assets/img/pfp.png">
-        </div>
-        <div id="postTopContent" class="postComponent">
-          <h2>Piermenti Sfracellozzi</h2>
-          <a>Questa è una descrizione del post Grissinbon Grissinbon Grissinbon oggi porta in tavola una novità due a due confezionate son le fette biscottate</a>
-        </div>
-        <div class="postImage">
-          <img src="https://shorturl.at/dijkT">
-        </div>
-        <div id="likesCommentsRow" class="postComponent">
-          <div id="likes">
-            <img src="../../../assets/img/LikeIco.png">
-            <a>123</a>
-          </div>
-          <div id="comments">
-            <img src="../../../assets/img/CommentIco.png">
-            <a>123</a>
-          </div>
-        </div>
-        <div id="addComment" class="postComponent">
-          <input type="text" id="comment" name="comment" placeholder="Aggiungi un commento...">
-        </div>
-      </div> 
-      <hr> -->
-      
-  
-
-    
-
-    </div>
+    <div class="postFeed"></div>
+    <router-outlet></router-outlet>
   </div>
-  
+
+  <!-- Right Column -->
   <div class="rightColumn">
     <div class="sticky">
       <div class="inputSearch">
-        <input type="text" placeholder="Search SocialBan"/>
+        <input type="text" placeholder="Search SocialBan" />
       </div>
       <div class="userList">
         <h1>Current users</h1>
@@ -104,6 +36,6 @@
           </ul>
         </div>
       </div>
+    </div>
   </div>
-
 </div>
