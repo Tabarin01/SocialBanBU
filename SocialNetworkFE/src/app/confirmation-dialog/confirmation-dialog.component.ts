@@ -21,7 +21,4 @@ export class ConfirmationDialogComponent{
     }, 100);
   }
   
-  
-  
-
 }

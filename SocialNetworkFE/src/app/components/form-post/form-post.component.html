@@ -14,6 +14,6 @@
           <img [src]="postItem.image"  alt="">
         </div>
         <input type="textarea" placeholder="What's on your mind?" spellcheck="false" [(ngModel)]="postItem.description" required/>
-        <button (click)="onSubmit()">Post</button>
+        <button (click)="onSubmit()" (click)="closeDialog()" (click)="reload()">Post</button>
     </section>
   </div>

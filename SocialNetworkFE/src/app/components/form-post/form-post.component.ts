@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
+import { HomePageComponent } from "src/app/pages/home-page/home-page.component";
 import { AuthService } from "src/app/services/Auth/auth.service";
 import { PostService } from "src/app/services/Post/post.service";
 
@@ -21,7 +23,8 @@ export class FormPostsComponent implements OnInit{
 
   constructor(
     private authService: AuthService,
-    private postService: PostService
+    private postService: PostService,
+    public dialogRef: MatDialogRef<HomePageComponent>
   ) {}
 
   url = ""
@@ -41,6 +44,18 @@ export class FormPostsComponent implements OnInit{
         error : error => console.log("error", error)
       }
     )
+  }
+
+  reload(){
+    window.location.reload()
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
+
+    setTimeout(() => {
+      this.reload();
+    }, 100);
   }
 
 
