@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { ActivatedRoute, Route } from "@angular/router";
 import { ConfirmationDialogComponent } from "src/app/components/confirmation-dialog/confirmation-dialog.component";
 import { AuthService } from "src/app/services/Auth/auth.service";
 import { PostService } from "src/app/services/Post/post.service";
@@ -57,12 +56,12 @@ export class PostsComponent implements OnInit {
       if (result) {
         // Effettua la chiamata al servizio per eliminare il post
         this.postService.deletePost(this.post.id).subscribe({
-          next: () => {
-            console.log("Post eliminato con successo.");
-          },
-          error: (error) => {
-            console.error("Errore durante l'eliminazione del post:", error);
-          },
+          // next: () => {
+          //   console.log("Post eliminato con successo.");
+          // },
+          // error: (error) => {
+          //   console.error("Errore durante l'eliminazione del post:", error);
+          // },
         });
       }
     });
