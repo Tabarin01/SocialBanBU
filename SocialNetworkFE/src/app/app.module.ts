@@ -23,6 +23,7 @@ import { VoidComponentComponent } from './components/void/void.component';
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
+import { ProfilesComponent } from './pages/profiles/profiles.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
     ConfirmationDialogComponent,
     ShowPostsComponent,
     VoidComponentComponent,
+    ProfilesComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,41 +7,36 @@ import { PostService } from "src/app/services/Post/post.service";
   templateUrl: "./form-post.component.html",
   styleUrls: ["./form-post.component.css"],
 })
-export class FormPostsComponent implements OnInit{
-  
+export class FormPostsComponent implements OnInit {
   userAuth: any;
 
-
-  postItem: any ={
-    title:"",
-    image:"",
-    description:""
-  }
-
+  postItem: any = {
+    title: "",
+    image: "",
+    description: "",
+  };
 
   constructor(
     private authService: AuthService,
-    private postService: PostService,
-    // public dialogRef: MatDialogRef<HomePageComponent>
+    private postService: PostService // public dialogRef: MatDialogRef<HomePageComponent>
   ) {}
 
-  url = ""
-  
+  url = "";
+
   ngOnInit(): void {
     this.authService.getUserProfile().subscribe({
-      next: (data) => this.userAuth = data,
-      error: (error) => console.log('error', error),
+      next: (data) => (this.userAuth = data),
+      error: (error) => console.log("error", error),
     });
   }
 
-  onSubmit(){
-    console.log("values", this.postItem)
-    this.postService.createPost(this.postItem).subscribe(
-      {
-        next:data=> console.log("created post", data),
-        error : error => console.log("error", error)
-      }
-    )
+  onSubmit() {
+    console.log("values", this.postItem);
+    this.postService.createPost(this.postItem).subscribe({
+      next: (data) => console.log("created post", data),
+      error: (error) => console.log("error", error),
+    });
+    location.reload();
   }
 
   // reload(){
@@ -55,7 +50,4 @@ export class FormPostsComponent implements OnInit{
   //     this.reload();
   //   }, 100);
   // }
-
-
-
 }

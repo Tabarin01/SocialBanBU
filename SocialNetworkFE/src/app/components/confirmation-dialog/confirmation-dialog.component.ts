@@ -1,24 +1,33 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
+import { PostService } from "src/app/services/Post/post.service";
 
 @Component({
   selector: "app-confirmation-dialog",
   templateUrl: "./confirmation-dialog.component.html",
   styleUrls: ["./confirmation-dialog.component.css"],
 })
-export class ConfirmationDialogComponent {
+export class ConfirmationDialogComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private postService: PostService
   ) {}
+  id: any;
 
-  reload() {
-    window.location.reload();
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get("id");
   }
 
-  confirmDelete(): void {
-    this.dialogRef.close(true);
-    this.route.snapshot.parent
+  onClick() {
+    this.postService.deletePost(this.id).subscribe({
+      next: () => {
+        console.log("Post eliminato con successo.");
+      },
+      error: (error) => {
+        console.error("Errore durante l'eliminazione del post:", error);
+      },
+    });
   }
+
 }

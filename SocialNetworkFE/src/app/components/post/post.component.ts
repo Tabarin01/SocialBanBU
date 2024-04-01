@@ -46,24 +46,24 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  deletePost(): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: "250px",
-      data: { message: "Sei sicuro di voler eliminare questo post?" },
-    });
+  // deletePost(): void {
+  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+  //     width: "250px",
+  //     data: { message: "Sei sicuro di voler eliminare questo post?" },
+  //   });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        // Effettua la chiamata al servizio per eliminare il post
-        this.postService.deletePost(this.post.id).subscribe({
-          // next: () => {
-          //   console.log("Post eliminato con successo.");
-          // },
-          // error: (error) => {
-          //   console.error("Errore durante l'eliminazione del post:", error);
-          // },
-        });
-      }
-    });
-  }
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     if (result) {
+  //       // Effettua la chiamata al servizio per eliminare il post
+  //       this.postService.deletePost(this.post.id).subscribe({
+  //         // next: () => {
+  //         //   console.log("Post eliminato con successo.");
+  //         // },
+  //         // error: (error) => {
+  //         //   console.error("Errore durante l'eliminazione del post:", error);
+  //         // },
+  //       });
+  //     }
+  //   });
+  // }
 }

@@ -1,0 +1,25 @@
+<div class="container bg-cyan-950">
+  <div class="profile">
+    <div class="profile-header">
+      <div class="profile-details">
+        <div>
+          <h1 class="profile-name">{{ userProfile.fullName }}</h1>
+          <h2>{{ userProfile.email }}</h2>
+          <h3>{{ userProfile.dob }}</h3>
+          <h3>{{ userProfile.role }}</h3>
+        </div>
+        <mat-icon>edit</mat-icon>
+      </div>
+    </div>
+    <div class="profile-content">
+      <h2 class="section-title">Posts</h2>
+      <div *ngFor="let post of posts.slice().reverse()">
+        <div *ngIf="post.user.id == userProfile.id">
+          <div>
+            <app-posts [post]="post" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

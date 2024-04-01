@@ -8,18 +8,14 @@ import { LogoutDialogComponent } from "../logout-dialog/logout-dialog.component"
   templateUrl: "./nav.component.html",
   styleUrls: ["./nav.component.css"],
 })
-  
 export class NavComponent {
-
   constructor(public dialog: MatDialog) {}
 
   openDialogLogout(): void {
-    const dialogRef = this.dialog.open(LogoutDialogComponent, {
-    });
+    this.dialog.open(LogoutDialogComponent, {});
   }
 
   openDialogProfile(): void {
-    const dialogRef = this.dialog.open(UserProfileComponent, {
-    });
+    this.dialog.open(UserProfileComponent, {});
   }
 }

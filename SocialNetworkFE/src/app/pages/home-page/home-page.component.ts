@@ -22,7 +22,6 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.getUserProfile();
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
       this.posts = state.posts;

@@ -4,11 +4,12 @@
   </div>
   <div id="postTopContent" class="postComponent">
     <div>
+      <h2>{{ post.user.fullName }}</h2>
       <h2>{{ post.title }}</h2>
       <a>{{ post.description }}</a>
       <mat-icon
-        (click)="deletePost()"
-        [style]=" isOwner ? 'display: flex' : 'display:none'"
+        [style]="isOwner ? 'display: flex' : 'display:none'"
+        routerLink="/deletePost/{{ post.id }}"
         >delete</mat-icon
       >
     </div>
