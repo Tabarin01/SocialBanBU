@@ -48,29 +48,3 @@ export class ProfilesComponent implements OnInit {
     return post.sort((a, b) => b.id - a.id);
   }
 }
-
-// ngOnInit(): void {
-//   this.postService.getPosts().subscribe();
-//   this.postService.postSubject.subscribe((state) => {
-//     this.posts = this.sortPostsById(state.posts);
-//     // console.log(this.posts);
-//   });
-
-//   this.userService.getAllUsers().subscribe((users) => {
-//     // Gestisci i post ricevuti dal servizio
-//     this.users = users;
-
-//     for (let i = 0; i < this.users.length; i++) {
-//       if (this.users[i].id == this.route.snapshot.paramMap.get("id")) {
-//         this.userProfile = this.users[i];
-//         break;
-//       }
-//     }
-//   });
-// }
-
-//   sortPostsById(post : any[] = []) {
-//     return post.sort((a, b) => b.id - a.id); // Ordinamento decrescente per ID
-//   }
-
-// }

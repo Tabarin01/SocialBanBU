@@ -50,4 +50,20 @@ export class UserService {
         })
       );
   }
+
+  updatePost(userData: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http
+      .put(`${this.baseUrl}/api/users/editProfile`, userData, { headers })
+      .pipe(
+        tap((updatedUser: any) => {
+          const currentState = this.userSubject.value;
+          const updatedUsers = currentState.posts.map((item: any) =>
+            item.id === updatedUser.id ? updatedUser : item
+          );
+          this.userSubject.next({ ...currentState, posts: updatedUsers });
+        })
+      );
+  }
+
 }

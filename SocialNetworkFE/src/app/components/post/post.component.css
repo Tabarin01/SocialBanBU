@@ -1,189 +1,4 @@
-/* Reset e stili globali */
-* {
-  color: #fff;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100%;
-}
-
-input:focus {
-  outline-width: 0;
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-/* Elementi con posizione sticky */
-.sticky {
-  position: sticky;
-  top: 1rem;
-}
-
-.leftColumn {
-  z-index: 2;
-}
-
-/* Colonna centrale post-profilo*/
-.centralColumn {
-  background-color: #000000;
-  border-right: 0.13rem solid #252525;
-  border-left: 0.13rem solid #252525;
-  width: 35rem;
-  height: 100%;
-  z-index: 1;
-}
-
-.postForm {
-  display: flex;
-  justify-content: center;
-}
-
-.centralColumn .postForm input {
-  height: 5rem;
-  width: 100%;
-  background-image: url("../../../assets/img/PostFeedIco.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  padding-left: 1rem;
-  background-color: #000000;
-  border: none;
-  box-shadow: none;
-  background-size: 2.3rem;
-  font-size: 150%;
-}
-
-.centralColumn .postForm input::placeholder {
-  color: #11a2e0;
-  opacity: 1;
-}
-
-.centralColumn .postForm input:hover {
-  cursor: pointer;
-}
-
-.postFeed {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-hr {
-  border: 0;
-  height: 0.13rem;
-  background: #252525;
-}
-
-/* Colonna destra search-lista utenti */
-.rightColumn {
-  background-color: #14232900;
-  padding: 0 1rem;
-  padding-right: 1.3rem;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  width: 15rem;
-  margin: 0.9rem 0.9rem;
-  font-size: 100%;
-}
-
-.rightColumn .inputSearch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rightColumn input {
-  height: 2.1rem;
-  width: 100%;
-  padding-left: 1rem;
-  background-color: #252525;
-  border: none;
-  box-shadow: none;
-  background-size: 2rem;
-  border-radius: 4rem;
-  background-image: url("../../../assets/img/SearchIco.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.rightColumn .magnifyingGlass {
-  width: 1.7rem;
-  padding: 0.5rem;
-  margin-left: auto;
-}
-
-.rightColumn input::placeholder {
-  color: #c2c2c2a1;
-}
-
-.userList {
-  background-color: #252525;
-  padding: 0.1rem 1rem;
-  border-radius: 1rem;
-  margin-top: 1rem;
-}
-
-.userList h1 {
-  font-size: 190%;
-  margin-top: 0.6rem;
-  margin-bottom: 0.4rem;
-  font-weight: 400;
-}
-
-.userList ul {
-  list-style-type: none;
-}
-
-.userList li {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin: 1rem 0;
-  text-align: left;
-}
-
-.userList img {
-  width: 2rem;
-  padding-right: 0.5rem;
-}
-
-.userList hr {
-  width: 10rem;
-  height: 1px;
-}
-
-/*----------*/
-
-input, h1, img, #likesCommentsRow a {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/*@media only screen and (max-width: 1200px) {
-  .rightColumn {
-    display: none;
-  }
-}
-*/
-
-
-
-
-
-
-
 .post {
-  background-color: #11a2e000;
-  width: 34.74rem;
   max-height: 100%;
   padding: 0.9rem;
   position: relative;
@@ -192,14 +7,21 @@ input, h1, img, #likesCommentsRow a {
   justify-content: center;
 }
 
+.postComponent {
+  margin-left: 3rem;
+  margin-right: 1rem;
+}
+
 .userPfp img {
   margin-top: 0.3rem;
   width: 2.5rem;
   position: absolute;
+  border-radius: 100%;
 }
 
 .post h2 {
   margin: 0;
+  margin-top: 0.5rem;
   padding: 0;
   height: 1.6rem;
   font-size: 115%;
@@ -212,8 +34,73 @@ input, h1, img, #likesCommentsRow a {
   color: #f3f3f3ee;
 }
 
+#userNameAndDate {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+}
 
-.post .postImage img{
+.postDate {
+  max-width: 200rem;
+}
+
+.postDate h2 {
+  font-weight: 100;
+  font-size: 80%;
+  margin-left: 0.5rem;
+  color: #e4e4e4d8;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: right;
+  top: -1.5rem;
+  height: 2.3rem;
+}
+
+.dropdown span {
+  font-size: 200%;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  background-color: #050505;
+  border: 0.1rem solid #3d474f;
+  box-shadow: none;
+  border-radius: 0.3rem;
+  z-index: 1000;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 0.1rem 1rem;
+  padding-bottom: 0.75rem;
+  right: 0;
+  margin-top: 0.2rem;
+}
+
+mat-icon {
+  cursor: pointer;
+  margin-top: 0.65rem;
+  margin-right: 0.5rem;
+}
+
+.edit,
+.delete {
+  display: flex;
+  align-content: center;
+}
+
+.dots:hover .dropdown-content {
+  display: flex;
+}
+.dots {
+  z-index: 99;
+}
+
+.post .postImage img {
   max-width: 29.74rem;
   border-radius: 1rem;
   border: 1px solid rgb(39, 39, 39);
@@ -221,21 +108,10 @@ input, h1, img, #likesCommentsRow a {
   margin-top: 0.6rem;
   cursor: pointer;
   max-height: 30rem;
+  position: relative;
 }
 
-.postComponent {
-  margin-left: 3rem;
-  margin-right: 1rem;
-}
-
-.postComponent .postInteraction{
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-
-#likesCommentsRow {
+.postInteraction {
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
   display: flex;
@@ -252,7 +128,8 @@ input, h1, img, #likesCommentsRow a {
   color: #959595;
 }
 
-#likes, #comments {
+#likes,
+#comments {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -265,60 +142,95 @@ input, h1, img, #likesCommentsRow a {
   margin-top: 0.5rem;
 }
 
-.imageProfile{
+.imageProfile {
   background: #fff;
   object-fit: cover;
-  
 }
 
-.postInteraction{
+.postInteraction {
   display: flex;
 }
-
-
-
-
-/*Contenitore di commenti*/
 
 /* Comment Section */
 .comments-container {
+  width: 100%;
+  max-height: 15rem;
+  overflow: scroll;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 0.5rem 0;
+  width: 29.74rem;
+  margin-left: 3rem;
+  margin-top: -0.6rem;
+}
+
+.comment-userInfos {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0;
 }
 
-.userImage img {
-  width: 2.5rem; /* Adjust based on your design */
-  height: 2.5rem; /* Make the image a circle if the images are square */
-  border-radius: 50%; /* This will create a circular profile picture */
-  margin-right: 0.5rem; /* Space between the image and the username */
+.comment-userPfp img {
+  width: 2rem;
+  border-radius: 50%;
 }
 
-.username {
-  font-size: 90%; /* Adjust the size to match your design */
-  font-weight: bold; /* Make the username stand out */
-  color: #fff; /* Username color */
+.comment-username {
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  margin-left: 0.5rem;
 }
 
-.comments-post {
-  margin-left: 3rem; /* Aligns text with the username */
-  color: #ccc; /* Comment text color for readability */
-  font-size: 85%; /* Slightly smaller than the username for hierarchy */
+.comment {
+  margin-left: 2.5rem;
+  margin-top: -0.4rem;
+  word-wrap: break-word;
 }
 
-.comments-post span {
-  display: block; /* Ensures comments are block-level elements */
-  margin-top: 0.2rem; /* Space between username and comment text */
+.comment-date {
+  font-size: 70%;
+  color: #e4e4e4d8;
 }
 
-.comments-container + div {
-  margin-left: 3rem; /* Aligns the date with the comment text */
-  font-size: 80%; /* Smaller font size for the date */
-  color: #999; /* Less emphasis on the date */
-  margin-bottom: 0.5rem; /* Space after the date before the next comment */
+#addComment {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  font-weight: bold;
+  align-content: center;
+  color: white !important;
 }
 
-.comments-container + div span {
-  display: block; /* Block-level element */
-  margin-top: 0.1rem; /* Small gap after the comment for the date */
+#comment-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  color: white;
+  cursor: pointer;
 }
+
+.comments-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.comments {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+input {
+  user-select: none;
+}
+
+hr {
+  border: 0;
+  height: 0.13rem;
+  background: #252525;
+}
+
+/* TODO: Fix 3 dots menu position*/

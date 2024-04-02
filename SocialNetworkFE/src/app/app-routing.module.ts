@@ -7,15 +7,17 @@ import { VoidComponentComponent } from "./components/void/void.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
+import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 
 const routes: Routes = [
-  { path: "", component: VoidComponentComponent },
+  { path: "", component: ShowPostsComponent },
   { path: "posts", component: ShowPostsComponent },
   { path: "loggedProfile", component: UserProfileComponent },
   { path: "creationPost", component: FormPostsComponent },
   { path: "deletePost/:id", component: ConfirmationDialogComponent },
   { path: "profileUser/:id", component: ProfilesComponent },
-  { path : "editPost/:id" , component : EditPostComponent}
+  { path: "editPost/:id", component: EditPostComponent },
+  { path: "editProfile/:id", component: EditProfileComponent },
 ];
 
 @NgModule({

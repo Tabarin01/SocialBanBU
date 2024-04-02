@@ -26,6 +26,7 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
 import { ProfilesComponent } from './pages/profiles/profiles.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     ProfilesComponent,
     EditPostComponent,
     FeedbackComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

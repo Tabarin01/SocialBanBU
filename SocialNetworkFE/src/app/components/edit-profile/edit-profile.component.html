@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    Immage Profile
+    <img [src]="userEdit.imgProfile" alt="" />
+    <input
+      type="text"
+      value="userEdit.imgProfile"
+      [(ngModel)]="userEdit.imgProfile"
+    />
+  </div>
+  <div>
+    FullName
+    <input
+      type="text"
+      value="userEdit.fullname"
+      [(ngModel)]="userEdit.fullName"
+      class="input-field"
+    />
+  </div>
+  <div>
+    Email
+    <input
+      type="email"
+      value="userEdit.email"
+      [(ngModel)]="userEdit.email"
+      class="input-field"
+    />
+  </div>
+  <div>
+    Password
+    <input
+      type="password"
+      [(ngModel)]="userEdit.password"
+      class="input-field"
+    />
+  </div>
+  <div>
+    <button routerLink="profileUser/{{ userEdit.id }}" class="edit-button">
+      Edit Profile
+    </button>
+  </div>
+</div>

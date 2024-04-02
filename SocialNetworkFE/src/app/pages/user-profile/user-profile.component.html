@@ -1,32 +1,34 @@
-<body>
-  <div class="container bg-cyan-950">
-    <div class="profile">
-      <div class="profile-header">
-        <img
-          class="profile-picture"
-          [src]="userAuth.imgProfile"
-          alt="Profile Picture"
-        />
-        <div class="profile-details">
-          <div>
-            <h1 class="profile-name">{{ userAuth.fullName }}</h1>
-            <h2>{{ userAuth.email }}</h2>
-            <h3>{{ userAuth.dob }}</h3>
-            <h3>{{ userAuth.role }}</h3>
-          </div>
-          <mat-icon>edit</mat-icon>
+
+  <div class="profile">
+    <div class="profile-header">
+      <img
+        class="profile-picture"
+        [src]="userAuth.imgProfile"
+        alt="Profile Picture"
+      />
+      <div class="profile-details">
+        <div>
+          <h1 class="profile-name">{{ userAuth.fullName }}</h1>
+          <h2>{{ userAuth.email }}</h2>
+          <h3>{{ userAuth.dob }}</h3>
+          <h3>{{ userAuth.role }}</h3>
         </div>
+        <mat-icon
+          routerLink="/editProfile/{{ userAuth.id }}"
+          style="cursor: pointer"
+          >edit</mat-icon
+        >
       </div>
-      <div class="profile-content">
-        <h2 class="section-title">Posts</h2>
-        <div *ngFor="let item of posts.slice().reverse()">
-          <div *ngIf="item.user.id == userAuth.id">
-            <div>
-              <app-posts [post]="item" />
-            </div>
+    </div>
+    <div class="profile-content">
+      <h2 class="section-title">Posts</h2>
+      <div *ngFor="let item of posts">
+        <div *ngIf="item.user.id == userAuth.id">
+          <div>
+            <app-posts [post]="item" />
           </div>
         </div>
       </div>
     </div>
   </div>
-</body>
+

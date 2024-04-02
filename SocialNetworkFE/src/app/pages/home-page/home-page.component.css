@@ -146,11 +146,14 @@ hr {
   align-items: center;
   margin: 1rem 0;
   text-align: left;
+  cursor: pointer;
 }
 
 .userList img {
   width: 2rem;
   padding-right: 0.5rem;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
 .userList hr {
@@ -160,7 +163,10 @@ hr {
 
 /*----------*/
 
-input, h1, img, #likesCommentsRow a {
+input,
+h1,
+img,
+#likesCommentsRow a {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -174,23 +180,6 @@ input, h1, img, #likesCommentsRow a {
   }
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .post {
   background-color: #11a2e000;
@@ -223,8 +212,7 @@ input, h1, img, #likesCommentsRow a {
   color: #f3f3f3ee;
 }
 
-
-.post .postImage img{
+.post .postImage img {
   max-width: 29.74rem;
   border-radius: 1rem;
   border: 1px solid rgb(39, 39, 39);
@@ -256,7 +244,8 @@ input, h1, img, #likesCommentsRow a {
   color: #959595;
 }
 
-#likes, #comments {
+#likes,
+#comments {
   display: flex;
   align-items: center;
   cursor: pointer;

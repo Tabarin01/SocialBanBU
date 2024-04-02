@@ -1,31 +1,46 @@
 <div class="post">
-  <div class="userPfp">
+  <div
+    class="userPfp"
+    routerLink="/profileUser/{{ post.user.id }}"
+    style="cursor: pointer"
+  >
     <img [src]="post.user.imgProfile" alt="userIcon" class="imageProfile" />
   </div>
   <div id="postTopContent" class="postComponent">
+    <div id="userNameAndDate">
+      <h2 routerLink="/profileUser/{{ post.user.id }}" style="cursor: pointer">
+        {{ post.user.fullName }}
+      </h2>
+      <div class="postDate">
+        <h2>· {{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}</h2>
+      </div>
+    </div>
+
+    <div class="dropdown" [style]="isOwner ? 'display: flex' : 'display:none'">
+      <div class="dots">
+        <span>...</span>
+        <div class="dropdown-content">
+          <div class="edit">
+            <mat-icon routerLink="/editPost/{{ post.id }}">edit</mat-icon>
+            <h2>Edit</h2>
+          </div>
+          <div class="delete">
+            <mat-icon routerLink="/deletePost/{{ post.id }}">delete</mat-icon>
+            <h2>Delete</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div>
-      <h2>{{ post.user.fullName }}</h2>
       <h2>{{ post.title }}</h2>
       <a>{{ post.description }}</a>
-      <mat-icon
-        [style]="isOwner ? 'display: flex' : 'display:none'"
-        routerLink="/deletePost/{{ post.id }}"
-        >delete</mat-icon
-      >
-      <mat-icon
-        [style]="isOwner ? 'display: flex' : 'display:none'"
-        routerLink="/editPost/{{ post.id }}"
-        >edit</mat-icon
-      >
     </div>
   </div>
   <div class="postImage">
     <img [src]="post.image" />
   </div>
   <div id="likesCommentsRow" class="postComponent">
-    <div class="createdDate">
-      <a>{{ post.createdAt | date : "HH:mm, dd MMMM yyyy" }}</a>
-    </div>
     <div class="postInteraction">
       <div id="likes" (click)="pushLikes(post.id)">
         <img src="../../../assets/img/LikeIco.png" />
@@ -39,23 +54,34 @@
       </div>
     </div>
   </div>
-  <div *ngFor="let comment of post.comments">
-    <hr />
-    <div class="comments-container">
-      <div class="userPfp">
-        <img class="imageProfile" [src]="comment.user.imgProfile" alt="Icon" />
+  <div class="comments-container">
+    <div class="comment-container" *ngFor="let comment of post.comments">
+      <div class="comment-userInfos">
+        <div class="comment-userPfp">
+          <img
+            class="imageProfile"
+            [src]="comment.user.imgProfile"
+            alt="Icon"
+          />
+        </div>
+
+        <div
+          class="comment-username"
+          routerLink="/profileUser/{{ comment.user.id }}"
+        >
+          <span>{{ comment.user.fullName }}</span>
+        </div>
       </div>
-      <div class="username">
-        <span>{{ comment.user.fullName }}</span>
+
+      <div class="comment">
+        <div class="comment-text">
+          <span>{{ comment.text }}</span>
+        </div>
+
+        <div class="comment-date">
+          {{ comment.createdAt | date : "HH:mm, dd MMMM yyyy" }}
+        </div>
       </div>
-    </div>
-    <div class="postComponent">
-      <span>{{ comment.text }}</span>
-    </div>
-    <div>
-      <span>
-        {{ comment.createdAt | date : "HH:mm, dd MMMM yyyy" }}
-      </span>
     </div>
   </div>
   <div id="addComment" class="postComponent">
@@ -66,6 +92,7 @@
       [(ngModel)]="comment.text"
       name="comment"
     />
-    <button (click)="pushComment(post.id)">Pubblica</button>
+    <button id="comment-button" (click)="pushComment(post.id)">Publish</button>
   </div>
 </div>
+<hr />
