@@ -24,7 +24,7 @@ export class ProfilesComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
-      this.posts = state.posts;
+      this.posts = this.sortPostsById(state.posts);
       // console.log(this.posts);
     });
 
@@ -40,4 +40,9 @@ export class ProfilesComponent implements OnInit {
       }
     });
   }
+
+  sortPostsById(post : any[] = []) {
+    return post.sort((a, b) => b.id - a.id); // Ordinamento decrescente per ID
+  }
+
 }

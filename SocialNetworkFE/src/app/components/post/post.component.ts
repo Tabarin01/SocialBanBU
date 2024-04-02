@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmationDialogComponent } from "src/app/components/confirmation-dialog/confirmation-dialog.component";
 import { AuthService } from "src/app/services/Auth/auth.service";
@@ -30,6 +36,7 @@ export class PostsComponent implements OnInit {
           : false;
     });
   }
+
   comment = {
     text: "",
     createdAt: new Date(),
@@ -49,24 +56,13 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  // deletePost(): void {
-  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-  //     width: "250px",
-  //     data: { message: "Sei sicuro di voler eliminare questo post?" },
-  //   });
+  ngOnChanges(): void {
+    this.loadUserData(); // Ricarica i dati della componente quando l'input `post` cambia
+  }
 
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     if (result) {
-  //       // Effettua la chiamata al servizio per eliminare il post
-  //       this.postService.deletePost(this.post.id).subscribe({
-  //         // next: () => {
-  //         //   console.log("Post eliminato con successo.");
-  //         // },
-  //         // error: (error) => {
-  //         //   console.error("Errore durante l'eliminazione del post:", error);
-  //         // },
-  //       });
-  //     }
-  //   });
-  // }
+  loadUserData() {
+    if (!this.post) {
+      return;
+    }
+  }
 }

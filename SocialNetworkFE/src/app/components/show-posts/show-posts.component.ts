@@ -8,16 +8,18 @@ import { PostService } from "src/app/services/Post/post.service";
   styleUrls: ["./show-posts.component.css"],
 })
 export class ShowPostsComponent {
-  posts = [];
+  posts: any[] = [];
 
-  constructor(
-    private postService: PostService
-  ) {}
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
-      this.posts = state.posts;
+      this.posts = this.sortPostsById(state.posts);
     });
+  }
+
+  sortPostsById(post : any[] = []) {
+    return post.sort((a, b) => b.id - a.id); // Ordinamento decrescente per ID
   }
 }

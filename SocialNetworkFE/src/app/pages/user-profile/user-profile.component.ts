@@ -35,7 +35,7 @@ export class UserProfileComponent implements OnInit {
 
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
-      this.posts = state.posts;
+      this.posts = state.posts.reverse();
     });
   }
 
