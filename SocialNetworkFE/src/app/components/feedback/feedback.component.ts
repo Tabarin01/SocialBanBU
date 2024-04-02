@@ -7,7 +7,7 @@ import { ConfirmationDialogComponent } from "../confirmation-dialog/confirmation
   templateUrl: "./feedback.component.html",
   styleUrls: ["./feedback.component.css"],
 })
-export class FeedbackComponent {
+export class DeleteFeedbackComponent {
   constructor(
     public dialogRef: MatDialogRef<ConfirmationDialogComponent>){}
 

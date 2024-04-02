@@ -53,7 +53,7 @@ public class AuthController {
 		createdUser.setPassword(passwordEncoder.encode(password));
 		createdUser.setFullName(fullName);
 		createdUser.setDob(dob);
-		createdUser.setImgProfile("https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png");
+		createdUser.setImgProfile("https://cdn3d.iconscout.com/3d/free/thumb/free-user-3814118-3187499.png?f=webp");
 		createdUser.setRole(User.Role.GUEST);
 
 		User savedUser = userRepository.save(createdUser);

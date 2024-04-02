@@ -53,6 +53,14 @@ public class PostController {
 
 	}
 
+	@GetMapping("/editPost/{postId}")
+	public Post editPost(@PathVariable Long postId, @RequestHeader("Authorization") String jwt) throws Exception {
+
+		Post retrivePost = postService.findPostById(postId);
+
+		return retrivePost;
+	}
+
 	@DeleteMapping("/{postId}")
 	public String deletePost(@PathVariable Long postId, @RequestHeader("Authorization") String jwt) throws Exception {
 		postService.deletePost(postId, jwt);
@@ -66,6 +74,7 @@ public class PostController {
 			throws Exception {
 
 		Post updatedPost = postService.updatePost(post, id, jwt);
+		
 		return updatedPost;
 	}
 

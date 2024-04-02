@@ -56,7 +56,7 @@ public class UserServiceImplementation implements UserService {
 			throw new Exception("User not authorized");
 		}
 
-		oldUser.setId(oldUser.getId());	
+		oldUser.setId(oldUser.getId());
 
 		if (newUser.getFullName() != null) {
 			oldUser.setFullName(newUser.getFullName());
@@ -65,6 +65,10 @@ public class UserServiceImplementation implements UserService {
 		if (newUser.getImgProfile() != null) {
 
 			oldUser.setImgProfile(newUser.getImgProfile());
+		}
+
+		if (newUser.getDob() != null) {
+			oldUser.setDob(newUser.getDob());
 		}
 
 		return userRepository.save(oldUser);

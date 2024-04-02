@@ -35,12 +35,20 @@ export class PostsComponent implements OnInit {
           ? true
           : false;
     });
+    
   }
 
   comment = {
     text: "",
     createdAt: new Date(),
   };
+
+  isEmpty(): boolean{
+      return  this.comment.text.length < 1 ? true  : false;
+  }
+
+  
+ 
 
   pushComment(id: any) {
     console.log(id);

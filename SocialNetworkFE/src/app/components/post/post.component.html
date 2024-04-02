@@ -93,8 +93,16 @@
       placeholder="Aggiungi un commento..."
       [(ngModel)]="comment.text"
       name="comment"
+      maxlength="255"
     />
-    <button id="comment-button" (click)="pushComment(post.id)">Publish</button>
+    <div>{{ comment.text.length }}/255</div>
+    <button
+      id="comment-button"
+      (click)="pushComment(post.id)"
+      [disabled]="isEmpty()"
+    >
+      Publish
+    </button>
   </div>
 </div>
 <hr />

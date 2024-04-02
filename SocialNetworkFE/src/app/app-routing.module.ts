@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: "deletePost/:id", component: ConfirmationDialogComponent },
   { path: "profileUser/:id", component: ProfilesComponent },
   { path: "editPost/:id", component: EditPostComponent },
-  { path: "editProfile/:id", component: EditProfileComponent },
+  { path: "editProfile", component: EditProfileComponent },
 ];
 
 @NgModule({

@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { AuthService } from "src/app/services/Auth/auth.service";
 import { PostService } from "src/app/services/Post/post.service";
-import { FeedbackComponent } from "../feedback/feedback.component";
 
 @Component({
   selector: "app-form-post",
@@ -33,7 +32,6 @@ export class FormPostsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("values", this.postItem);
     this.postService.createPost(this.postItem).subscribe({
       next: (data) => console.log("created post", data),
       error: (error) => console.log("error", error),

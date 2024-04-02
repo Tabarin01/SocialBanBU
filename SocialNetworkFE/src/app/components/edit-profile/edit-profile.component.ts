@@ -1,16 +1,20 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { AuthService } from "src/app/services/Auth/auth.service";
 import { UserService } from "src/app/services/Users/user.service";
+import { DeleteFeedbackComponent } from "../feedback/feedback.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: "app-edit-profile",
   templateUrl: "./edit-profile.component.html",
   styleUrls: ["./edit-profile.component.css"],
 })
-export class EditProfileComponent {
+export class EditProfileComponent implements OnInit {
   userEdit = {
     id: "",
     fullName: "",
+    dob : "",
     email: "",
     password: "",
     imgProfile: "",
@@ -19,19 +23,25 @@ export class EditProfileComponent {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get("id");
-    this.user = this.userService.getUserById(id).subscribe();
-    this.userService.userSubject.subscribe((state) => {
-      this.user = state.user;
+    this.authService.getUserProfile().subscribe({
+      next: (data) => (this.userEdit = data),
     });
-    this.userEdit = this.user;
   }
 
   onEdit() {
-    this.userService.updatePost(this.userEdit).subscribe({});
+    this.userService.updateUser(this.userEdit).subscribe({
+      next: (data) => data,
+    });
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DeleteFeedbackComponent);
   }
 }

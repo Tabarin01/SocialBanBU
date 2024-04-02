@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PostService } from "src/app/services/Post/post.service";
-import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FeedbackComponent } from "../feedback/feedback.component";
+import { MatButtonModule } from "@angular/material/button";
+import { FormsModule } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { DeleteFeedbackComponent } from "../feedback/feedback.component";
 
 @Component({
   selector: "app-confirmation-dialog",
@@ -34,10 +34,10 @@ export class ConfirmationDialogComponent implements OnInit {
         console.error("Errore durante l'eliminazione del post:", error);
       },
     });
-    this.openDialog()
+    this.openDialog();
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(FeedbackComponent);
+    const dialogRef = this.dialog.open(DeleteFeedbackComponent);
   }
 }

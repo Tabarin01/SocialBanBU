@@ -18,15 +18,15 @@ import { ConfirmationDialogComponent } from "./components/confirmation-dialog/co
 import { FormPostsComponent } from "./components/form-post/form-post.component";
 import { NavComponent } from "./components/nav/nav.component";
 import { PostsComponent } from "./components/post/post.component";
-import { ShowPostsComponent } from './components/show-posts/show-posts.component';
-import { VoidComponentComponent } from './components/void/void.component';
+import { ShowPostsComponent } from "./components/show-posts/show-posts.component";
+import { VoidComponentComponent } from "./components/void/void.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
-import { ProfilesComponent } from './pages/profiles/profiles.component';
-import { EditPostComponent } from './components/edit-post/edit-post.component';
-import { FeedbackComponent } from './components/feedback/feedback.component';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ProfilesComponent } from "./pages/profiles/profiles.component";
+import { EditPostComponent } from "./components/edit-post/edit-post.component";
+import { DeleteFeedbackComponent } from "./components/feedback/feedback.component";
+import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     VoidComponentComponent,
     ProfilesComponent,
     EditPostComponent,
-    FeedbackComponent,
+    DeleteFeedbackComponent,
     EditProfileComponent,
   ],
   imports: [

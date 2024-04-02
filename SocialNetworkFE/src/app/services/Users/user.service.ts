@@ -51,7 +51,7 @@ export class UserService {
       );
   }
 
-  updatePost(userData: any): Observable<any> {
+  updateUser(userData: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http
       .put(`${this.baseUrl}/api/users/editProfile`, userData, { headers })
@@ -65,5 +65,4 @@ export class UserService {
         })
       );
   }
-
 }

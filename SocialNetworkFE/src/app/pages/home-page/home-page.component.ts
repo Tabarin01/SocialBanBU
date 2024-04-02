@@ -17,8 +17,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private postService: PostService,
-    private userService: UserService,
-    private dialog: MatDialog
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -33,15 +32,4 @@ export class HomePageComponent implements OnInit {
       this.users = users;
     });
   }
-
-  openDialogFormPost(): void {
-    const dialogRef = this.dialog.open(FormPostsComponent, {
-    });
-  }
-
-  
-
-
-
-  
 }
