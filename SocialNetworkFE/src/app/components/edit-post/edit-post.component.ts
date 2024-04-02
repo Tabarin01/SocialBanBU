@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PostService } from "src/app/services/Post/post.service";
-import { DeleteFeedbackComponent } from "../feedback/feedback.component";
+import { FeedbackComponent } from "../feedback/feedback.component";
 import { MatDialog } from "@angular/material/dialog";
 
 @Component({
@@ -44,10 +44,10 @@ export class EditPostComponent implements OnInit {
       next: (data) => console.log("edited post ", data),
     });
 
-    this.openDialog()
+    this.openDialog();
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DeleteFeedbackComponent);
+    const dialogRef = this.dialog.open(FeedbackComponent);
   }
 }

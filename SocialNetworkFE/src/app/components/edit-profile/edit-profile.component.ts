@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { AuthService } from "src/app/services/Auth/auth.service";
 import { UserService } from "src/app/services/Users/user.service";
-import { DeleteFeedbackComponent } from "../feedback/feedback.component";
+import { FeedbackComponent } from "../feedback/feedback.component";
 import { MatDialog } from "@angular/material/dialog";
 
 @Component({
@@ -42,6 +42,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DeleteFeedbackComponent);
+    const dialogRef = this.dialog.open(FeedbackComponent);
   }
 }

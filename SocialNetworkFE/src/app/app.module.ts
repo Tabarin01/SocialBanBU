@@ -25,8 +25,9 @@ import { LoginComponent } from "./pages/login/login.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
-import { DeleteFeedbackComponent } from "./components/feedback/feedback.component";
+import { FeedbackComponent } from "./components/feedback/feedback.component";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
+import { ConfirmUserDeleteComponent } from './components/confirm-user-delete/confirm-user-delete.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,9 @@ import { EditProfileComponent } from "./components/edit-profile/edit-profile.com
     VoidComponentComponent,
     ProfilesComponent,
     EditPostComponent,
-    DeleteFeedbackComponent,
+    FeedbackComponent,
     EditProfileComponent,
+    ConfirmUserDeleteComponent,
   ],
   imports: [
     BrowserModule,

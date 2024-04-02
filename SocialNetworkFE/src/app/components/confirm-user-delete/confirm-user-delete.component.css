@@ -1,0 +1,33 @@
+/* Stile per l'elemento <h2> */
+h2 {
+  color: #007bff; /* Colore del testo blu elettrico */
+  font-family: Arial, sans-serif; /* Tipo di carattere */
+}
+
+/* Stile per l'elemento <p> */
+p {
+  color: #e0e0e0; /* Colore del testo nero */
+  font-family: Arial, sans-serif; /* Tipo di carattere */
+}
+
+/* Stile per il contenitore <div> */
+div {
+  text-align: end; /* Allinea il testo a destra */
+}
+
+/* Stile per i pulsanti <button> */
+button {
+  background-color: #007bff; /* Colore di sfondo blu elettrico */
+  color: #fff; /* Colore del testo bianco */
+  padding: 10px 20px; /* Spaziatura interna (padding) */
+  border: none; /* Nessun bordo */
+  border-radius: 5px; /* Bordi arrotondati */
+  margin-right: 10px; /* Margine a destra */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il pulsante */
+  font-family: Arial, sans-serif; /* Tipo di carattere */
+}
+
+/* Stile per il secondo pulsante */
+button:nth-child(2) {
+  background-color: #dc3545; /* Colore di sfondo rosso */
+}

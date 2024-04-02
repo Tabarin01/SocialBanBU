@@ -8,16 +8,22 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
 import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
+import { ConfirmUserDeleteComponent } from "./components/confirm-user-delete/confirm-user-delete.component";
 
 const routes: Routes = [
   { path: "", component: ShowPostsComponent },
   { path: "posts", component: ShowPostsComponent },
-  { path: "loggedProfile", component: UserProfileComponent },
-  { path: "creationPost", component: FormPostsComponent },
+  
   { path: "deletePost/:id", component: ConfirmationDialogComponent },
-  { path: "profileUser/:id", component: ProfilesComponent },
+  { path: "creationPost", component: FormPostsComponent },
   { path: "editPost/:id", component: EditPostComponent },
+
+  { path: "loggedProfile", component: UserProfileComponent },
   { path: "editProfile", component: EditProfileComponent },
+
+  { path: "deleteUser/:id", component: ConfirmUserDeleteComponent },
+  { path: "profileUser/:id", component: ProfilesComponent },
+
 ];
 
 @NgModule({

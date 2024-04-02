@@ -60,13 +60,11 @@ public class UserController {
 	}
 
 	@DeleteMapping("/{userId}")
-	public String deleteUser(@PathVariable Long userId, @RequestHeader("Authorization") String jwt) throws Exception {
+	public void deleteUser(@PathVariable Long userId, @RequestHeader("Authorization") String jwt) throws Exception {
 
 		User user = userService.findUserById(userId);
 
 		postService.deletePostByUserId(user.getId(),jwt);
-		
-		return "User deleted successfully";
 	}
 
 	// @PostMapping("/users")

@@ -58,10 +58,25 @@ export class UserService {
       .pipe(
         tap((updatedUser: any) => {
           const currentState = this.userSubject.value;
-          const updatedUsers = currentState.posts.map((item: any) =>
+          const updatedUsers = currentState.users.map((item: any) =>
             item.id === updatedUser.id ? updatedUser : item
           );
-          this.userSubject.next({ ...currentState, posts: updatedUsers });
+          this.userSubject.next({ ...currentState, users: updatedUsers });
+        })
+      );
+  }
+
+  deleteUser(id: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http
+      .delete(`${this.baseUrl}/api/users/${id}`, { headers })
+      .pipe(
+        tap((deletedUser: any) => {
+          const currentState = this.userSubject.value;
+          const updatedUser = currentState.users.filter(
+            (item: any) => item.id !== id
+          );
+          this.userSubject.next({ ...currentState, users: updatedUser });
         })
       );
   }
