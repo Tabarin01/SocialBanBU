@@ -43,6 +43,14 @@ public class UserController {
 		return users;
 	}
 
+	@GetMapping("/user/{userId}")
+	public User getUser(@PathVariable Long userId, @RequestHeader("Authorization") String jwt)throws Exception{
+		
+		User user = userService.findUserById(userId);
+
+		return user;
+	}
+
 	@PutMapping("/editProfile")
 	public User updateUser(@RequestHeader("Authorization") String jwt, @RequestBody User user) throws Exception {
 

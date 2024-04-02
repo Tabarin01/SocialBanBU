@@ -13,7 +13,7 @@
     </div>
     <div class="profile-content">
       <h2 class="section-title">Posts</h2>
-      <div *ngFor="let post of posts.slice().reverse()">
+      <div *ngFor="let post of posts">
         <div *ngIf="post.user.id == userProfile.id">
           <div>
             <app-posts [post]="post" />

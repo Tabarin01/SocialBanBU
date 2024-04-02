@@ -44,7 +44,7 @@ public class PostController {
 		return posts;
 	}
 
-	@GetMapping("/{userId}")
+	@GetMapping("/profilePost/{userId}")
 	public List<Post> getAllUserPost(@PathVariable Long userId) throws Exception {
 
 		List<Post> posts = postService.findAllPostByUserId(userId);

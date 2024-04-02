@@ -115,4 +115,17 @@ export class PostService {
         })
       );
   }
+
+  getUserPost(id: any): Observable<any>{
+    const headers = this.getHeaders();
+    return this.http.delete(`${this.baseUrl}/api/post/profilePost/${id}`, { headers }).pipe(
+      tap((deletedPost: any) => {
+        const currentState = this.postSubject.value;
+        const updatedPost = currentState.posts.filter(
+          (item: any) => item.id !== id
+        );
+        this.postSubject.next({ ...currentState, posts: updatedPost });
+      })
+    );
+  }
 }

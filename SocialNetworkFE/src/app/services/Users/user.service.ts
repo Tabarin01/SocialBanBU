@@ -13,7 +13,7 @@ export class UserService {
   userSubject = new BehaviorSubject<any>({
     users: [],
     loading: false,
-    newUser:null
+    newUser: null,
   });
 
   private getHeaders(): HttpHeaders {
@@ -35,6 +35,18 @@ export class UserService {
         catchError((error) => {
           console.error("errore durante il recupero degli utenti: ", error);
           return throwError(error);
+        })
+      );
+  }
+
+  getUserById(id: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http
+      .get(`${this.baseUrl}/api/users/user/${id}`, { headers })
+      .pipe(
+        tap((user) => {
+          const currentState = this.userSubject.value;
+          this.userSubject.next({ ...currentState, user });
         })
       );
   }
