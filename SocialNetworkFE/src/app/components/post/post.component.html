@@ -38,6 +38,7 @@
     </div>
   </div>
   <div class="postImage">
+    <!-- <video [src]="post.image"></video> -->
     <img [src]="post.image" />
   </div>
   <div id="likesCommentsRow" class="postComponent">
@@ -87,6 +88,7 @@
   <div id="addComment" class="postComponent">
     <input
       type="text"
+      autocomplete="off"
       id="{{ post.id }}"
       placeholder="Aggiungi un commento..."
       [(ngModel)]="comment.text"

@@ -35,11 +35,11 @@ export class UserProfileComponent implements OnInit {
 
     this.postService.getPosts().subscribe();
     this.postService.postSubject.subscribe((state) => {
-      this.posts = state.posts.reverse();
+      this.posts = this.sortPostsById(state.posts);
     });
   }
 
-  console(post: any) {
-    // console.log("valore postos" ,post.value);
+  sortPostsById(post: any[] = []) {
+    return post.sort((a, b) => b.id - a.id);
   }
 }

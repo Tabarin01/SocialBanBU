@@ -211,6 +211,7 @@ mat-icon {
   margin-top: 0.5rem;
   color: white;
   cursor: pointer;
+  margin-left: 0.2rem;
 }
 
 .comments-container::-webkit-scrollbar {
@@ -223,8 +224,9 @@ mat-icon {
   scrollbar-width: none; /* Firefox */
 }
 
-input {
-  user-select: none;
+input:focus {
+  outline: none;
+  color: white;
 }
 
 hr {
@@ -233,4 +235,10 @@ hr {
   background: #252525;
 }
 
-/* TODO: Fix 3 dots menu position*/
+/* TODO:Profile top 
+        White font comment
+        Distance name description in post
+        Form post
+        Edit post
+        Logout alert
+*/
