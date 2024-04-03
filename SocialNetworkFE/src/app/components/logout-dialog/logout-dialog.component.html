@@ -1,7 +1,12 @@
-<div class="avviso">
-  <p><strong>Logout Warning: </strong>Are you sure you want to log out?</p>
-  <div>
+<div class="alert">
+  <div class="text">
+    <p>Are you sure you want to log out?</p>
+  </div>
+
+  <div class="buttons">
     <button (click)="onNoClick()">No Thanks</button>
-    <button (click)="handleLogout()" (click)="onNoClick()">Yes</button>
+    <button id="yesButton" (click)="handleLogout()" (click)="onNoClick()">
+      Yes
+    </button>
   </div>
 </div>

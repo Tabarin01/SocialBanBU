@@ -7,6 +7,32 @@
   padding: 1rem;
 }
 
+header {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  font-size: 170%;
+  margin: 0.5rem;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.imgContainer img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+
 ::placeholder {
   color: rgba(235, 235, 235, 0.85) !important;
 }
@@ -32,6 +58,15 @@ input[type="email"] {
   background-color: transparent;
 }
 
+input {
+  color: white;
+}
+
+input[type="email"] {
+  color: #c4c4c49c;
+  cursor: not-allowed;
+}
+
 button {
   width: 85%;
   padding: 10px 30px;
@@ -43,19 +78,6 @@ button {
   outline: none;
   border-radius: 30px;
   color: rgba(255, 255, 255, 1);
-}
-
-.imgContainer {
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem;
-  height: 22rem; /* Imposta l'altezza automatica */
-  width: 100%;
-}
-
-.imgContainer img {
-  max-width: 20rem;
-  max-height: 20rem;
 }
 
 button:hover {

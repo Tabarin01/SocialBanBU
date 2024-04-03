@@ -1,6 +1,12 @@
 <div class="wrapper">
   <section class="profile">
-    <header>Edit Profile: {{ userEdit.fullName }}</header>
+    <header>
+      <div class="username">{{ userEdit.fullName }}</div>
+      <div class="imgContainer">
+        <img [src]="userEdit.imgProfile" alt="User imgProfile" />
+      </div>
+    </header>
+
     <div class="content">
       <h2>Image Profile</h2>
       <input
@@ -9,6 +15,7 @@
         [(ngModel)]="userEdit.imgProfile"
       />
     </div>
+
     <div class="content">
       <h2>Fullname</h2>
       <input
@@ -49,4 +56,3 @@
     </div>
   </section>
 </div>
-
