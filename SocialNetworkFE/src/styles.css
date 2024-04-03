@@ -19,7 +19,9 @@ body {
   height: 100%;
 }
 
-/*SCROLLBAR*/
+input {
+  color: white !important;
+}
 
 /* width */
 ::-webkit-scrollbar {
