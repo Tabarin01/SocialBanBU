@@ -2,16 +2,15 @@
   <section class="profile">
     <header>Edit Profile: {{ userEdit.fullName }}</header>
     <div class="content">
-      Image Profile
-      <img [src]="userEdit.imgProfile" alt="" />
+      <h2>Image Profile</h2>
       <input
         type="text"
         value="userEdit.imgProfile"
         [(ngModel)]="userEdit.imgProfile"
       />
     </div>
-    <div>
-      FullName
+    <div class="content">
+      <h2>Fullname</h2>
       <input
         type="text"
         value="userEdit.fullname"
@@ -20,8 +19,8 @@
       />
     </div>
 
-    <div>
-      Date of Birthday
+    <div class="content">
+      <h2>Birthday</h2>
       <input
         type="date"
         value="userEdit.dob"
@@ -29,8 +28,8 @@
         class="input-field"
       />
     </div>
-    <div>
-      Email (Not available)
+    <div class="content">
+      <h2>Email (Not available yet)</h2>
       <input
         type="email"
         value="{{ userEdit.email }}"
@@ -50,3 +49,4 @@
     </div>
   </section>
 </div>
+

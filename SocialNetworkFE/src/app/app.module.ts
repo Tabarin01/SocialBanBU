@@ -26,9 +26,8 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
 import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { FeedbackComponent } from "./components/feedback/feedback.component";
-import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
-import { ConfirmUserDeleteComponent } from './components/confirm-user-delete/confirm-user-delete.component';
-import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
+import { ConfirmUserDeleteComponent } from "./components/confirm-user-delete/confirm-user-delete.component";
+import { AdminEditComponent } from "./components/edit-profile/edit-profile.component";
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { AdminEditComponent } from './components/admin-edit/admin-edit.component
     ProfilesComponent,
     EditPostComponent,
     FeedbackComponent,
-    EditProfileComponent,
     ConfirmUserDeleteComponent,
     AdminEditComponent,
   ],

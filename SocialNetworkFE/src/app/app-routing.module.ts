@@ -7,9 +7,9 @@ import { VoidComponentComponent } from "./components/void/void.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
-import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
+
 import { ConfirmUserDeleteComponent } from "./components/confirm-user-delete/confirm-user-delete.component";
-import { AdminEditComponent } from "./components/admin-edit/admin-edit.component";
+import { AdminEditComponent } from "./components/edit-profile/edit-profile.component";
 
 const routes: Routes = [
   { path: "", component: ShowPostsComponent },
@@ -20,8 +20,6 @@ const routes: Routes = [
   { path: "editPost/:id", component: EditPostComponent },
 
   { path: "loggedProfile", component: UserProfileComponent },
-  { path: "editProfile", component: EditProfileComponent },
-
   { path: "deleteUser/:id", component: ConfirmUserDeleteComponent },
   { path: "profileUser/:id", component: ProfilesComponent },
   { path: "edit-user/:id", component: AdminEditComponent },
