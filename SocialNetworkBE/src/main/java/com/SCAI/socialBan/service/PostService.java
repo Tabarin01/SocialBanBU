@@ -26,4 +26,6 @@ public interface PostService {
 	public Post commentPost(Long postId, User user, String content) throws Exception;
 
 	public void deleteUserComments(Long userId, String jwt) throws Exception;
+
+	public void deleteUserLikes(Long userId, String jwt) throws Exception;
 }

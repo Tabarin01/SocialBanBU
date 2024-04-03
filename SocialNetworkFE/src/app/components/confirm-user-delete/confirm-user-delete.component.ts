@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { UserService } from "src/app/services/Users/user.service";
 import { FeedbackComponent } from "../feedback/feedback.component";
 import { AuthService } from "src/app/services/Auth/auth.service";
+import { PostService } from "src/app/services/Post/post.service";
 
 @Component({
   selector: "app-confirm-user-delete",
@@ -15,6 +16,7 @@ export class ConfirmUserDeleteComponent {
     private route: ActivatedRoute,
     private userService: UserService,
     private authService: AuthService,
+    private postService: PostService,
     public dialog: MatDialog
   ) {}
 
@@ -30,6 +32,15 @@ export class ConfirmUserDeleteComponent {
   }
 
   onClick() {
+    this.postService.deleteUserComments(this.id).subscribe({
+      next: () => {
+        console.log("commenti eliminati con successo");
+      },
+      error: (error) => {
+        console.error("errore durante l'eliminazione dei commenti", error);
+      },
+    });
+
     this.userService.deleteUser(this.id).subscribe({
       next: () => {
         console.log("User eliminato con successo.");
@@ -47,22 +58,6 @@ export class ConfirmUserDeleteComponent {
       this.openDialog();
     }
   }
-
-  /**
- * 
- * ngOnInit(): void {
-    this.authService.getUserProfile().subscribe({
-      next: (data) => (this.userAuth = data),
-    });
-
-    this.postService.getPosts().subscribe();
-    this.postService.postSubject.subscribe((state) => {
-      this.posts = this.sortPostsById(state.posts);
-    });
-  }
- * 
- * 
- */
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FeedbackComponent);

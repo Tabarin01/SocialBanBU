@@ -23,6 +23,7 @@ export class ConfirmationDialogComponent implements OnInit {
   }
 
   onClick() {
+    
     this.postService.deletePost(this.id).subscribe({
       next: () => {
         console.log("Post eliminato con successo.");

@@ -50,19 +50,6 @@ export class PostService {
     );
   }
 
-  deletePost(id: any): Observable<any> {
-    const headers = this.getHeaders();
-    return this.http.delete(`${this.baseUrl}/api/post/${id}`, { headers }).pipe(
-      tap((deletedPost: any) => {
-        const currentState = this.postSubject.value;
-        const updatedPost = currentState.posts.filter(
-          (item: any) => item.id !== id
-        );
-        this.postSubject.next({ ...currentState, posts: updatedPost });
-      })
-    );
-  }
-
   createComment(id: any, comment: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http
@@ -130,5 +117,37 @@ export class PostService {
           return throwError(error);
         })
       );
+  }
+
+  deleteUserComments(id: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http
+      .delete(`${this.baseUrl}/api/post/deleteComments/${id}`, { headers })
+      .pipe(
+        tap((deletedComments: any) => {
+          const currentState = this.postSubject.value;
+          const updatedPost = currentState.posts.filter(
+            (item: any) => item.id !== id
+          );
+          this.postSubject.next({ ...currentState, posts: updatedPost });
+        }),
+        catchError((error) => {
+          console.error("errore durante la rimozione dei commenti: ", error);
+          return throwError(error);
+        })
+      );
+  }
+
+  deletePost(id: any): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.delete(`${this.baseUrl}/api/post/${id}`, { headers }).pipe(
+      tap((deletedPost: any) => {
+        const currentState = this.postSubject.value;
+        const updatedPost = currentState.posts.filter(
+          (item: any) => item.id !== id
+        );
+        this.postSubject.next({ ...currentState, posts: updatedPost });
+      })
+    );
   }
 }

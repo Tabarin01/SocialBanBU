@@ -82,6 +82,7 @@ public class PostServiceImplementation implements PostService {
 
 		return listaPost;
 	}
+	
 
 	// DELETE POSTS
 
@@ -127,6 +128,17 @@ public class PostServiceImplementation implements PostService {
 				}
 			}
 		}
+	}
+
+	public void deleteUserLikes(Long userId, String jwt) throws Exception{
+
+		List<Post> allPosts = findAllPost();
+
+		for(Post post: allPosts){
+			
+		}
+
+
 	}
 
 	// UPDATE POST
