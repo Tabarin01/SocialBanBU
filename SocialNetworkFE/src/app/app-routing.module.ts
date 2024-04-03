@@ -9,11 +9,12 @@ import { ProfilesComponent } from "./pages/profiles/profiles.component";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ConfirmUserDeleteComponent } from "./components/confirm-user-delete/confirm-user-delete.component";
+import { AdminEditComponent } from "./components/admin-edit/admin-edit.component";
 
 const routes: Routes = [
   { path: "", component: ShowPostsComponent },
   { path: "posts", component: ShowPostsComponent },
-  
+
   { path: "deletePost/:id", component: ConfirmationDialogComponent },
   { path: "creationPost", component: FormPostsComponent },
   { path: "editPost/:id", component: EditPostComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
 
   { path: "deleteUser/:id", component: ConfirmUserDeleteComponent },
   { path: "profileUser/:id", component: ProfilesComponent },
-
+  { path: "edit-user/:id", component: AdminEditComponent },
 ];
 
 @NgModule({

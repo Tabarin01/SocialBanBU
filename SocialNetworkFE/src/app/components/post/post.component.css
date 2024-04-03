@@ -15,6 +15,7 @@
 .userPfp img {
   margin-top: 0.3rem;
   width: 2.5rem;
+  height: 2.5rem;
   position: absolute;
   border-radius: 100%;
 }
@@ -23,7 +24,6 @@
   margin: 0;
   margin-top: 0.5rem;
   padding: 0;
-  height: 1.6rem;
   font-size: 115%;
   font-weight: 500;
 }
@@ -96,8 +96,10 @@ mat-icon {
 .dots:hover .dropdown-content {
   display: flex;
 }
+
 .dots {
   z-index: 99;
+  margin-top: -0.5rem;
 }
 
 .post .postImage img {
@@ -175,6 +177,7 @@ mat-icon {
 
 .comment-userPfp img {
   width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 }
 
@@ -208,10 +211,10 @@ mat-icon {
   background-color: transparent;
   border: none;
   border-radius: 1rem;
-  margin-top: 0.5rem;
+  margin-top: -0.25rem;
   color: white;
   cursor: pointer;
-  margin-left: 0.2rem;
+  margin-left: 0.9rem;
 }
 
 .comments-container::-webkit-scrollbar {
@@ -233,6 +236,10 @@ hr {
   border: 0;
   height: 0.13rem;
   background: #252525;
+}
+
+.post-title {
+  margin-top: -1rem;
 }
 
 /* TODO:Profile top 

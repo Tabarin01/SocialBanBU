@@ -23,7 +23,6 @@ export class EditProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
     private authService: AuthService,
     public dialog: MatDialog
   ) {}

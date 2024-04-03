@@ -1,26 +1,34 @@
 <div class="profile">
   <div class="profile-header">
-    <img
-      class="profile-picture"
-      [src]="userProfile.imgProfile"
-      alt="Profile Picture"
-    />
+    <div class="profile-images">
+      <div class="banner"></div>
+      <img
+        class="profile-picture"
+        [src]="userProfile.imgProfile"
+        alt="Profile Picture"
+      />
+
+      <div class="mat-icons" *ngIf="userAuth.role == 'ADMIN'">
+        <mat-icon routerLink="/edit-user/{{ userProfile.id }}">edit</mat-icon>
+        <mat-icon routerLink="/deleteUser/{{ userProfile.id }}"
+          >delete</mat-icon
+        >
+      </div>
+    </div>
     <div class="profile-details">
       <div>
         <h1 class="profile-name">{{ userProfile.fullName }}</h1>
         <h2>{{ userProfile.email }}</h2>
-        <h3>{{ userProfile.dob }}</h3>
-        <h3>{{ userProfile.role }}</h3>
-      </div>
-
-      <div *ngIf="userAuth.role == 'ADMIN'">
-        <mat-icon>edit</mat-icon>
-        <mat-icon routerLink="/deleteUser/{{userProfile.id}}">delete</mat-icon>
+        <h3 class="profile-birthday">{{ userProfile.dob }}</h3>
+        <h3 *ngIf="userAuth.role == 'ADMIN'">{{ userProfile.role }}</h3>
       </div>
     </div>
   </div>
   <div class="profile-content">
-    <h2 class="section-title">Posts</h2>
+    <div class="section-title">
+      <h2>Posts</h2>
+    </div>
+    <hr />
     <div *ngFor="let post of posts">
       <div *ngIf="post.user.id == userProfile.id">
         <div>

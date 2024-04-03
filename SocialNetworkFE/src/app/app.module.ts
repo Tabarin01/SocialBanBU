@@ -28,6 +28,7 @@ import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { FeedbackComponent } from "./components/feedback/feedback.component";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ConfirmUserDeleteComponent } from './components/confirm-user-delete/confirm-user-delete.component';
+import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ConfirmUserDeleteComponent } from './components/confirm-user-delete/con
     FeedbackComponent,
     EditProfileComponent,
     ConfirmUserDeleteComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,
