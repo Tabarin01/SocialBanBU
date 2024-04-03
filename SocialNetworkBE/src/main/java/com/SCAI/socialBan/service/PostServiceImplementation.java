@@ -2,15 +2,18 @@ package com.SCAI.socialBan.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.SCAI.socialBan.model.Comment;
 import com.SCAI.socialBan.model.Post;
 import com.SCAI.socialBan.model.User;
+import com.SCAI.socialBan.repository.CommentRepository;
 import com.SCAI.socialBan.repository.PostRepository;
 
 @Service
@@ -22,6 +25,9 @@ public class PostServiceImplementation implements PostService {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private CommentRepository commentRepository;
 
 	// ------------------------------------------------------
 
@@ -107,7 +113,23 @@ public class PostServiceImplementation implements PostService {
 		userService.deleteUser(user, jwt);
 	}
 
-	//UPDATE POST
+	@Transactional
+	public void deleteUserComments(Long userId, String jwt) throws Exception {
+		List<Post> allPosts = findAllPost();
+
+		for (Post post : allPosts) {
+			Iterator<Comment> iterator = post.getComments().iterator();
+			while (iterator.hasNext()) {
+				Comment comment = iterator.next();
+				if (comment.getUser().getId().equals(userId)) {
+					iterator.remove(); // Rimuovi il commento dalla lista del post
+					commentRepository.deleteById(comment.getId()); // Elimina il commento dal database
+				}
+			}
+		}
+	}
+
+	// UPDATE POST
 
 	@Override
 	public Post updatePost(Post post, Long id, String jwt) throws Exception {

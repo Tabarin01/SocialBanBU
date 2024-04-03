@@ -69,12 +69,21 @@ public class PostController {
 
 	}
 
+	@DeleteMapping("/deleteComments/{userId}")
+	public String deleteComments(@PathVariable Long userId, @RequestHeader("Authorization") String jwt)
+			throws Exception {
+
+		postService.deleteUserComments(userId, jwt);
+
+		return "Comments of user" + userId + "deleted";
+	}
+
 	@PutMapping("/{id}")
 	public Post updatePost(@RequestBody Post post, @PathVariable Long id, @RequestHeader("Authorization") String jwt)
 			throws Exception {
 
 		Post updatedPost = postService.updatePost(post, id, jwt);
-		
+
 		return updatedPost;
 	}
 
