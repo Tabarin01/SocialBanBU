@@ -1,49 +1,82 @@
-<div class="container">
-  <div>
-    Immage Profile
-    <img [src]="userEdit.imgProfile" alt="" />
-    <input
-      type="text"
-      value="userEdit.imgProfile"
-      [(ngModel)]="userEdit.imgProfile"
-    />
-  </div>
-  <div>
-    FullName
-    <input
-      type="text"
-      value="userEdit.fullname"
-      [(ngModel)]="userEdit.fullName"
-      class="input-field"
-    />
-  </div>
+<div class="wrapper">
+  <section class="profile">
+    <header>Edit Profile: {{ userEdit.fullName }}</header>
+    <div class="content">
+      <h2>Image Profile</h2>
+      <input
+        type="text"
+        value="userEdit.imgProfile"
+        [(ngModel)]="userEdit.imgProfile"
+      />
+    </div>
+    <div class="content">
+      <h2>Fullname</h2>
+      <input
+        type="text"
+        value="userEdit.fullname"
+        [(ngModel)]="userEdit.fullName"
+        class="input-field"
+      />
+    </div>
 
-  <div>
-    Date of Birthday
-    <input
-      type="date"
-      value="userEdit.dob"
-      [(ngModel)]="userEdit.dob"
-      class="input-field"
-    />
-  </div>
-  <div>
-    Email (Not available)
-    <input
-      type="email"
-      value="{{ userEdit.email }}"
-      [(ngModel)]="userEdit.email"
-      class="input-field"
-      readonly
-    />
-  </div>
-  <div>
-    <button
-      routerLink="/profileUser/{{ userEdit.id }}"
-      class="edit-button"
-      (click)="onEdit()"
-    >
-      Edit Profile
-    </button>
-  </div>
+    <div class="content">
+      <h2>Birthday</h2>
+      <input
+        type="date"
+        value="userEdit.dob"
+        [(ngModel)]="userEdit.dob"
+        class="input-field"
+      />
+    </div>
+    <div class="content">
+      <h2>Email (Not available yet)</h2>
+      <input
+        type="email"
+        value="{{ userEdit.email }}"
+        [(ngModel)]="userEdit.email"
+        class="input-field"
+        readonly
+      />
+    </div>
+    <div>
+      <button
+        routerLink="/loggedProfile"
+        class="edit-button"
+        (click)="onEdit()"
+      >
+        Edit Profile
+      </button>
+    </div>
+  </section>
 </div>
+<!-- 
+  <div class="wrapper">
+  <section class="post">
+    <header>Create Post</header>
+    <div class="content">
+      <img mat-card-avatar [src]="userAuth.imgProfile" alt="Icon" />
+      <div class="details">
+        <mat-card-title>{{ userAuth.fullName }}</mat-card-title>
+      </div>
+    </div>
+    <input type="text" placeholder="Title.." [(ngModel)]="postItem.title" />
+    <input
+    type="textarea"
+    placeholder="What's on your mind?"
+    spellcheck="false"
+    [(ngModel)]="postItem.description"
+    required
+  />
+    <input
+      type="text"
+      placeholder="Url image ..."
+      [(ngModel)]="postItem.image"
+    />
+    <div class="imgContainer">
+      <img [src]="postItem.image" alt="" />
+    </div>
+
+    <button (click)="onSubmit()" routerLink="/posts">Post</button>
+  </section>
+</div>
+ -->

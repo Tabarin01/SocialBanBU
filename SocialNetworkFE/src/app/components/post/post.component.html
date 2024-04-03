@@ -16,25 +16,24 @@
       </div>
     </div>
 
-    <div class="dropdown" [style]="isOwner ? 'display: flex' : 'display:none'">
-      <div class="dots">
-        <span>...</span>
-        <div class="dropdown-content">
-          <div class="edit">
-            <mat-icon routerLink="/editPost/{{ post.id }}">edit</mat-icon>
-            <h2>Edit</h2>
-          </div>
-          <div class="delete">
-            <mat-icon routerLink="/deletePost/{{ post.id }}">delete</mat-icon>
-            <h2>Delete</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="post-title">
       <h2>{{ post.title }}</h2>
       <a>{{ post.description }}</a>
+    </div>
+  </div>
+  <div class="dropdown" [style]="isOwner ? 'display: flex' : 'display:none'">
+    <div class="dots">
+      <span>...</span>
+      <div class="dropdown-content">
+        <div class="edit">
+          <mat-icon routerLink="/editPost/{{ post.id }}">edit</mat-icon>
+          <h2>Edit</h2>
+        </div>
+        <div class="delete">
+          <mat-icon routerLink="/deletePost/{{ post.id }}">delete</mat-icon>
+          <h2>Delete</h2>
+        </div>
+      </div>
     </div>
   </div>
   <div class="postImage">

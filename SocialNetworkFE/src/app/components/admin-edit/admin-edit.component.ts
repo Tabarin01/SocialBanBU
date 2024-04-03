@@ -57,6 +57,4 @@ export class AdminEditComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(FeedbackComponent);
   }
-
-  
 }

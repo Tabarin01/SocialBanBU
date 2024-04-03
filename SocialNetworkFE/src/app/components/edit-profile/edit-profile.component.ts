@@ -8,13 +8,13 @@ import { MatDialog } from "@angular/material/dialog";
 @Component({
   selector: "app-edit-profile",
   templateUrl: "./edit-profile.component.html",
-  styleUrls: ["./edit-profile.component.css"],
+  styleUrls: ["../form-post/form-post.component.css"],
 })
 export class EditProfileComponent implements OnInit {
   userEdit = {
     id: "",
     fullName: "",
-    dob : "",
+    dob: "",
     email: "",
     password: "",
     imgProfile: "",

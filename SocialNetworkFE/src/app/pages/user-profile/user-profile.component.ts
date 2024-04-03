@@ -6,7 +6,7 @@ import { UserService } from "src/app/services/Users/user.service";
 @Component({
   selector: "app-user-profile",
   templateUrl: "./user-profile.component.html",
-  styleUrls: ["./user-profile.component.css"],
+  styleUrls: ["../profiles/profiles.component.css"],
 })
 export class UserProfileComponent implements OnInit {
   posts = [

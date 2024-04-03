@@ -66,3 +66,7 @@ hr {
   height: 0.13rem;
   background: #252525;
 }
+
+mat-icon {
+  cursor: pointer;
+}

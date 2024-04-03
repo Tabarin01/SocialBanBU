@@ -7,7 +7,7 @@ import { MatDialog } from "@angular/material/dialog";
 @Component({
   selector: "app-edit-post",
   templateUrl: "./edit-post.component.html",
-  styleUrls: ["./edit-post.component.css"],
+  styleUrls: ["../form-post/form-post.component.css"],
 })
 export class EditPostComponent implements OnInit {
   postItem = {

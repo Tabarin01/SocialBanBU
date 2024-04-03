@@ -1,45 +1,52 @@
-<div class="container">
-  <div>
-    Immage Profile
-    <img [src]="userEdit.imgProfile" alt="" />
-    <input
-      type="text"
-      value="userEdit.imgProfile"
-      [(ngModel)]="userEdit.imgProfile"
-    />
-  </div>
-  <div>
-    FullName
-    <input
-      type="text"
-      value="userEdit.fullname"
-      [(ngModel)]="userEdit.fullName"
-      class="input-field"
-    />
-  </div>
+<div class="wrapper">
+  <section class="profile">
+    <header>Edit Profile: {{ userEdit.fullName }}</header>
+    <div class="content">
+      Image Profile
+      <img [src]="userEdit.imgProfile" alt="" />
+      <input
+        type="text"
+        value="userEdit.imgProfile"
+        [(ngModel)]="userEdit.imgProfile"
+      />
+    </div>
+    <div>
+      FullName
+      <input
+        type="text"
+        value="userEdit.fullname"
+        [(ngModel)]="userEdit.fullName"
+        class="input-field"
+      />
+    </div>
 
-  <div>
-    Date of Birthday
-    <input
-      type="date"
-      value="userEdit.dob"
-      [(ngModel)]="userEdit.dob"
-      class="input-field"
-    />
-  </div>
-  <div>
-    Email (Not available)
-    <input
-      type="email"
-      value="{{ userEdit.email }}"
-      [(ngModel)]="userEdit.email"
-      class="input-field"
-      readonly
-    />
-  </div>
-  <div>
-    <button routerLink="/loggedProfile" class="edit-button" (click)="onEdit()">
-      Edit Profile
-    </button>
-  </div>
+    <div>
+      Date of Birthday
+      <input
+        type="date"
+        value="userEdit.dob"
+        [(ngModel)]="userEdit.dob"
+        class="input-field"
+      />
+    </div>
+    <div>
+      Email (Not available)
+      <input
+        type="email"
+        value="{{ userEdit.email }}"
+        [(ngModel)]="userEdit.email"
+        class="input-field"
+        readonly
+      />
+    </div>
+    <div>
+      <button
+        routerLink="/loggedProfile"
+        class="edit-button"
+        (click)="onEdit()"
+      >
+        Edit Profile
+      </button>
+    </div>
+  </section>
 </div>

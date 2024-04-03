@@ -1,30 +1,36 @@
 <div class="profile">
-  <h1>Your Profile</h1>
   <div class="profile-header">
-    <img
-      class="profile-picture"
-      [src]="userAuth.imgProfile"
-      alt="Profile Picture"
-    />
+    <div class="profile-images">
+      <div class="banner"></div>
+      <img
+        class="profile-picture"
+        [src]="userAuth.imgProfile"
+        alt="Profile Picture"
+      />
+
+      <div class="mat-icons">
+        <mat-icon routerLink="/edit-user/{{ userAuth.id }}">edit</mat-icon>
+        <mat-icon routerLink="/deleteUser/{{ userAuth.id }}">delete</mat-icon>
+      </div>
+    </div>
     <div class="profile-details">
       <div>
         <h1 class="profile-name">{{ userAuth.fullName }}</h1>
         <h2>{{ userAuth.email }}</h2>
-        <h3>{{ userAuth.dob }}</h3>
-        <h3>{{ userAuth.role }}</h3>
+        <h3 class="profile-birthday">{{ userAuth.dob }}</h3>
+        <h3 *ngIf="userAuth.role == 'ADMIN'">{{ userAuth.role }}</h3>
       </div>
-      <mat-icon routerLink="/editProfile" style="cursor: pointer"
-        >edit</mat-icon
-      >
-      <mat-icon routerLink="/deleteUser/{{userAuth.id}}">delete</mat-icon>
     </div>
   </div>
   <div class="profile-content">
-    <h2 class="section-title">Posts</h2>
-    <div *ngFor="let item of posts">
-      <div *ngIf="item.user.id == userAuth.id">
+    <div class="section-title">
+      <h2>Posts</h2>
+    </div>
+    <hr />
+    <div *ngFor="let post of posts">
+      <div *ngIf="post.user.id == userAuth.id">
         <div>
-          <app-posts [post]="item" />
+          <app-posts [post]="post" />
         </div>
       </div>
     </div>

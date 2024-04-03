@@ -52,12 +52,12 @@
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   display: flex;
   justify-content: right;
-  top: -1.5rem;
-  height: 2.3rem;
+  align-items: center;
+  top: 1.8rem;
+  right: 1rem;
 }
 
 .dropdown span {
@@ -78,7 +78,7 @@
   padding: 0.1rem 1rem;
   padding-bottom: 0.75rem;
   right: 0;
-  margin-top: 0.2rem;
+  margin-top: -0.2rem;
 }
 
 mat-icon {
@@ -239,13 +239,7 @@ hr {
 }
 
 .post-title {
-  margin-top: -1rem;
+  margin-top: 1rem;
 }
 
-/* TODO:Profile top 
-        White font comment
-        Distance name description in post
-        Form post
-        Edit post
-        Logout alert
-*/
+/* TODO:Feedback alert*/
