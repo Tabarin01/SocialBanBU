@@ -17,6 +17,9 @@ export class FormPostsComponent implements OnInit {
     description: "",
   };
 
+  isEmpty(): boolean {
+    return this.postItem.title.length < 1 ? true : false;
+  }
   constructor(
     private authService: AuthService,
     private postService: PostService // public dialogRef: MatDialogRef<HomePageComponent>

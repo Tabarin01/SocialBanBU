@@ -9,12 +9,11 @@
     </div>
     <input type="text" placeholder="Title.." [(ngModel)]="postItem.title" />
     <input
-    type="textarea"
-    placeholder="What's on your mind?"
-    spellcheck="false"
-    [(ngModel)]="postItem.description"
-    required
-  />
+      type="textarea"
+      placeholder="What's on your mind?"
+      spellcheck="false"
+      [(ngModel)]="postItem.description"
+    />
     <input
       type="text"
       placeholder="Url image ..."
@@ -24,6 +23,8 @@
       <img [src]="postItem.image" alt="" />
     </div>
 
-    <button (click)="onSubmit()" routerLink="/posts">Post</button>
+    <button (click)="onSubmit()" [disabled]="isEmpty()" routerLink="/posts">
+      Post
+    </button>
   </section>
 </div>
