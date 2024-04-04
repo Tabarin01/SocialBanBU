@@ -42,13 +42,13 @@
   </div>
   <div id="likesCommentsRow" class="postComponent">
     <div class="postInteraction">
-      <div id="likes" (click)="pushLikes(post.id)">
+      <div id="likes" class="likeButton" (click)="pushLikes(post.id)">
         <img src="../../../assets/img/LikeIco.png" />
         <a>{{ post.likes.length }}</a>
       </div>
-      <div id="comments">
+      <div id="comments" class="commentButton">
         <label for="{{ post.id }}">
-          <img src="../../../assets/img/CommentIco.png" />
+          <img src="../../../assets/img/CommentIco.png"  />
         </label>
         <a>{{ post.comments.length }}</a>
       </div>

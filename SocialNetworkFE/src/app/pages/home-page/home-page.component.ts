@@ -1,6 +1,4 @@
-import { Component, OnInit, Output } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { FormPostsComponent } from "src/app/components/form-post/form-post.component";
+import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/services/Auth/auth.service";
 import { PostService } from "src/app/services/Post/post.service";
 import { UserService } from "src/app/services/Users/user.service";
@@ -12,6 +10,9 @@ import { UserService } from "src/app/services/Users/user.service";
 })
 export class HomePageComponent implements OnInit {
   posts = [];
+ 
+  userAuth: any;
+
   users: any;
 
   constructor(
@@ -19,6 +20,7 @@ export class HomePageComponent implements OnInit {
     private postService: PostService,
     private userService: UserService
   ) {}
+
 
   ngOnInit() {
     this.postService.getPosts().subscribe();
@@ -31,5 +33,11 @@ export class HomePageComponent implements OnInit {
       // Gestisci i post ricevuti dal servizio
       this.users = users;
     });
+    this.authService.getUserProfile().subscribe({
+      next: (data) => (this.userAuth = data),
+    });
   }
+
 }
+
+

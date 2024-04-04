@@ -127,6 +127,7 @@ hr {
   padding: 0.1rem 1rem;
   border-radius: 1rem;
   margin-top: 1rem;
+  overflow: hidden;
 }
 
 .userList h1 {

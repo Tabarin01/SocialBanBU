@@ -25,8 +25,9 @@
   <!-- Right Column -->
   <div class="rightColumn">
     <div class="sticky">
-      <div class="inputSearch">
-        <input type="text" placeholder="Search SocialBan" />
+      <div style="height: 20vh; display: flex; background: white;">
+        <img [src]="userAuth.imgProfile" alt="">
+        <h1 style="color: black; font-size: 200px;">{{userAuth.fullName}}</h1>
       </div>
       <div class="userList">
         <h1>List of Users</h1>
