@@ -7,17 +7,24 @@
         <mat-card-title>{{ userAuth.fullName }}</mat-card-title>
       </div>
     </div>
-    <input type="text" placeholder="Title.." [(ngModel)]="postItem.title" />
+    <input
+      type="text"
+      placeholder="Title.."
+      [(ngModel)]="postItem.title"
+      maxlength="40"
+    />
     <input
       type="textarea"
       placeholder="What's on your mind?"
       spellcheck="false"
       [(ngModel)]="postItem.description"
+      maxlength="255"
     />
     <input
       type="text"
       placeholder="Url image ..."
       [(ngModel)]="postItem.image"
+      maxlength="255"
     />
     <div class="imgContainer">
       <img [src]="postItem.image" alt="" />
