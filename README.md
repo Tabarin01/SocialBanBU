@@ -1,8 +1,12 @@
 # SITO DEL SOCIALBAN
 
-## Creatori:
+##Backend e Frontend (comunicazione col backend):
 Simone Michelon<br>
 Sandro di Silvestro<br>
-Kamer Hasa<br>
+
+##Frontend:
 Alex Andretto<br>
+Kamer Hasa<br>
+
+##Deploy:
 Davide Chigliaro<br>
