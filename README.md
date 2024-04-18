@@ -1,12 +1,12 @@
 # SITO DEL SOCIALBAN
 
-##Backend e Frontend (comunicazione col backend):
+##Backend e Frontend (comunicazione col backend):<br>
 Simone Michelon<br>
 Sandro di Silvestro<br>
 
-##Frontend:
+##Frontend:<br>
 Alex Andretto<br>
 Kamer Hasa<br>
 
-##Deploy:
+##Deploy:<br>
 Davide Chigliaro<br>
